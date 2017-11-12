@@ -1,6 +1,7 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const CATEGORY_FILTER_APPLIED = 'CATEGORY_FILTER_APPLIED';
-export const UPDATE_STOCK = 'UPdATE_STOCK';
+export const UPDATE_STOCK = 'UPDATE_STOCK';
+export const SET_ORDERING = "SET_ORDERING"
 
 
 export function addToCart(id){
@@ -21,5 +22,13 @@ export function updateStock(id){
     return {
         type: UPDATE_STOCK,
         payload:id
+    }
+}
+
+export function setSelectedOrdering(ordering){
+    console.log('in action');
+    return{
+        type: SET_ORDERING,
+        payload: ordering
     }
 }

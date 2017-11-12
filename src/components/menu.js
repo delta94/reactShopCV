@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash'
 import Item from '../components/item.js'
-import {addToCart} from '../actions/actions_index.js'
+import {setSelectedOrdering} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import {numberOfTags, orderingType} from '../data/data.js'
 
@@ -10,21 +10,24 @@ import {numberOfTags, orderingType} from '../data/data.js'
 //this is a smart component. Needs to have access to items to render from state
 
 class Menu extends Component{
-
     constructor(props){
         super(props);
-        this.state = {selectedOrdering:'Category'}
+        this.state = {selectedOrdering:null};
 
-        this.onSelectChange = this.onSelectChange.bind(this)
+        this.onSelectChange = this.onSelectChange.bind(this);
+    }
+
+    componentDidMount(){
+        this.setState({selectedOrdering:this.props.selectedOrdering})
     }
     
     onSelectChange(event){
         this.setState({selectedOrdering:event.target.value})
+        this.props.setSelectedOrdering(event.target.value)
     }
 
     orderItems(items){
-        const ordering = this.state.selectedOrdering;
-        console.log(ordering);
+        const ordering = this.props.selectedOrdering;
         switch (ordering){
             case orderingType.category:
             return items.sort((a,b) => {
@@ -88,12 +91,12 @@ class Menu extends Component{
     }
 }
 
-function mapStateToProps({selectedTags,items}){
-    return {selectedTags,items}
+function mapStateToProps({selectedTags,items,selectedOrdering}){
+    return {selectedTags,items,selectedOrdering}
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({addToCart:addToCart},dispatch);
+    return bindActionCreators({setSelectedOrdering:setSelectedOrdering},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Menu);
