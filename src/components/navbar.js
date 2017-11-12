@@ -8,7 +8,7 @@ export default ()=>{
                 <h3>Welcome to fucking site
                 <span>
                     <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon">Z</span>
+                        <span className="navbar-toggler-icon">Checkout Item</span>
                     </button>
                     <Checkout/>
                 </span>

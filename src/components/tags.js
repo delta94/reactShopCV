@@ -2,21 +2,20 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
 import {selectTag} from '../actions/actions_index.js'
-import { tags } from '../data/data.js';
+import _ from 'lodash'
 
 class Tags extends Component{
 
-    onTagClick(event){
-        console.log('on tag component');
+    onTagChange(event){
         this.props.selectTag(event.target.value);
     }
 
-
     renderTagsList(){
-        return tags.map(tag => {
+        const tagsArr = _.values(this.props.selectedTags);
+        return tagsArr.map(tag => {
             return(
-                <li className="list-group-item" key={tag}>
-                    <input type="checkbox" value={tag} onClick={(event) =>this.onTagClick(event)}/>{tag}
+                <li className="list-group-item" key={tag.description}>
+                    <input type="checkbox" value={tag.description} onChange={(event) =>this.onTagChange(event)} checked = {tag.selected}/>{tag.description}
                 </li>
             )
         });

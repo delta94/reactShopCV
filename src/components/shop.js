@@ -3,7 +3,7 @@ import Navbar from './navbar.js'
 import Menu from './menu.js'
 import Tags from './tags.js'
 
-export default class App extends Component {
+export default class Shop extends Component {
   render() {
     return (
       <div>

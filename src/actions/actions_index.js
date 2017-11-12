@@ -1,5 +1,6 @@
 export const ADD_TO_CART = 'ADD_TO_CART';
 export const CATEGORY_FILTER_APPLIED = 'CATEGORY_FILTER_APPLIED';
+export const UPDATE_STOCK = 'UPdATE_STOCK';
 
 
 export function addToCart(id){
@@ -10,10 +11,15 @@ export function addToCart(id){
 }
 
 export function selectTag(tag){
-    console.log('on select tag action');
-    console.log(tag);
     return{
         type:CATEGORY_FILTER_APPLIED,
         payload:tag
+    }
+}
+
+export function updateStock(id){
+    return {
+        type: UPDATE_STOCK,
+        payload:id
     }
 }
