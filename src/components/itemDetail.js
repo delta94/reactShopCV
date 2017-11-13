@@ -34,6 +34,28 @@ class ItemDetail extends Component{
     }
 
     renderAddToCartButton(item){
+
+        let stockLevelAlert
+
+        (item.stock >=1 && item.stock <=5) ? stockLevelAlert = <div className="text-danger">Hurry up! Only {item.stock} available!</div> : stockLevelAlert=null 
+         
+
+        if(item.stock >0){
+            return (
+                <div>
+                    {stockLevelAlert}
+                    <button className="btn btn-primary" onClick={() => {
+                    this.showAlert()
+                    this.addToCart(this.props.item.id);
+                    this.updateStock(this.props.item.id)
+                    }}>Add to Cart
+                </button>
+                </div>  
+            )
+        } else{
+            return <h4>Too late! Item is sold out!</h4>
+        }
+
         
     }
 
@@ -50,12 +72,7 @@ class ItemDetail extends Component{
                     <p>{this.props.item.description}</p>
                     <p>{this.props.item.price}</p>
                 </div>
-                <button className="btn btn-primary" onClick={() => {
-                    this.showAlert()
-                    this.addToCart(this.props.item.id);
-                    this.updateStock(this.props.item.id)
-                    }
-                    }>Add to Cart</button>
+                    {this.renderAddToCartButton(this.props.item)}
                 <Link to="/" className="btn btn-danger">Back</Link>
                 <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
             </div>

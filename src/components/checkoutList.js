@@ -5,8 +5,26 @@ import {Link} from 'react-router-dom'
 import {removeFromCart, resetStock} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import _ from 'lodash'
+import AlertContainer from 'react-alert'
 
 class CheckoutList extends Component{
+
+    alertOptions = {
+        offset: 14,
+        position: 'bottom right',
+        theme: 'light',
+        transition: 'scale'
+        }
+    
+          
+        showAlert = () => {
+        this.msg.show('Item removed from cart!', {
+            time: 0,
+            type: 'success',
+            icon: <img />
+        })
+        }
+    
 
     onRemoveFromCartClick(id){
         this.props.removeFromCart(id);
@@ -54,7 +72,10 @@ class CheckoutList extends Component{
                     <h3>{item.description}</h3>
                     <h3>{item.price}</h3>
                     <h3>{itemQuantity}</h3>
-                    <button className="btn btn-warning" onClick={() => this.onRemoveFromCartClick(item.id)}>Remove from cart</button>                           
+                    <button className="btn btn-warning" onClick={() => {
+                        this.onRemoveFromCartClick(item.id);
+                        this.showAlert();
+                    }}>Remove from cart</button>                           
                 </li>
             )
         })
@@ -71,6 +92,7 @@ class CheckoutList extends Component{
                     </ul>
                 </div>
                 {this.renderListNavigationButtons()}
+                <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
             </div>
         ) 
     }

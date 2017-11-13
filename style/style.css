@@ -1,6 +1,9 @@
-/* .card{
-    display: inline-grid !important;
-} */
+.items{
+    display: inline !important;
+}
+.menu{
+    display: inline;
+}
 
 .article{
     margin-left: 10px;

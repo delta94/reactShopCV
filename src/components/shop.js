@@ -9,7 +9,7 @@ export default class Shop extends Component {
       <div>
         <Navbar />
         <div className="col-md-2"><Tags/></div>        
-        <div className="container col-md-10">
+        <div className="container col-md-10 items">
             <Menu />  
         </div>
 
