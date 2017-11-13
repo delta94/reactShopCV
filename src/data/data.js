@@ -18,7 +18,7 @@ export const items = {
     tag: 'Skills',
     id: 1,
     relevance: 1,
-    stock: 10,
+    stock: 1000,
   },
   2: {
     title: 'Msc in Finance',
@@ -62,6 +62,9 @@ export const items = {
     stock: 10,
   },
 };
+
+//not sure why I need this here but seems like state in items reducer is a reference to items object. When trying to revert to initial state they are bounded and cannot get startValue for stock
+export const initialStock = _.mapValues(items, (item)=>item.stock)
 
 export const cart = _.mapValues(items, () => 0);
 

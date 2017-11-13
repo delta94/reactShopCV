@@ -2,14 +2,15 @@ import React,{Component} from 'react'
 import {items} from '../data/data.js'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
-import {removeFromCart} from '../actions/actions_index.js'
+import {removeFromCart, resetStock} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import _ from 'lodash'
 
 class CheckoutList extends Component{
 
     onRemoveFromCartClick(id){
-        this.props.removeFromCart(id)
+        this.props.removeFromCart(id);
+        this.props.resetStock(id)
     }
 
     renderListNavigationButtons(){
@@ -80,7 +81,7 @@ function mapStateToProps(state){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({removeFromCart:removeFromCart},dispatch);
+    return bindActionCreators({removeFromCart:removeFromCart,resetStock:resetStock},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(CheckoutList);

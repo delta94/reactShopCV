@@ -33,6 +33,10 @@ class ItemDetail extends Component{
         this.props.addToCart(id);
     }
 
+    renderAddToCartButton(item){
+        
+    }
+
     render(){
         return(
             <div>
