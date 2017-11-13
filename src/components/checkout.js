@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {items} from '../data/data.js'
 import _ from 'lodash'
-
+import {Link} from 'react-router-dom';
 
 //this container will have to connect to state to render the selected items
 
@@ -15,13 +15,13 @@ class Checkout extends Component{
     })
 
     return (
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <span>{this.props.cart.length}</span>
-            <ul className="navbar-nav mr-auto">
-                <li>stuff</li>
-                <li>stuff</li>                
-          </ul>
+      <div>
+        <Link to="/checkout">
+          <span>Checkout</span>
+        </Link>
+        
       </div>
+        
     );
   }
 }

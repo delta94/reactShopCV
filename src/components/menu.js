@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import _ from 'lodash'
+import _ from 'lodash';
 import Item from '../components/item.js'
 import {setSelectedOrdering} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
