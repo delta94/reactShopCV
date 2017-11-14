@@ -78,21 +78,23 @@ class Menu extends Component{
 
     render(){ 
     return (
+        <div className="menu">
+            <div className="ordering">
+            <span className="sortBy">Sort by: </span>
+            <select value={this.state.selectedOrdering} className="filterSelect" onChange={this.onSelectChange}>
+                <option value={orderingType.category}>{orderingType.category}</option>
+                <option value={orderingType.priceAsc}>{orderingType.priceAsc}</option>
+                <option value={orderingType.priceDesc}>{orderingType.priceDesc}</option>
+            </select>
+        </div>
         <div className="container-fluid">
-            <div className="col-lg-12 col-md-12 col-sm-12 ordering">
-                <span className="sortBy">Sort by: </span>
-                <select value={this.state.selectedOrdering} className="filterSelect" onChange={this.onSelectChange}>
-                    <option value={orderingType.category}>{orderingType.category}</option>
-                    <option value={orderingType.priceAsc}>{orderingType.priceAsc}</option>
-                    <option value={orderingType.priceDesc}>{orderingType.priceDesc}</option>
-                </select>
-            </div>
                 <div className="container">
                     <ul className="list-inline">
                         {this.renderItemList()}
                     </ul>
                 </div>
             </div>
+        </div>
             )
     }
 }
