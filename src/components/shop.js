@@ -9,10 +9,8 @@ export default class Shop extends Component {
       <div>
         <Navbar />
         <div className="main">
-        <Tags/>
-        <div className="container-fluid col-sm-9 items">
+            <Tags/>
             <Menu />  
-        </div>
         </div>
       </div>
     );

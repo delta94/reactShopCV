@@ -1,20 +1,3 @@
-.items{
-    display: inline !important;
-}
-.menu{
-    display: inline;
-}
-
-.article{
-    margin-left: 10px;
-    margin-right: 10px;
-    
-}
-
-.item{
-    margin-top: 30px !important;
-}
-
 /* Navbar */
 
 .navbar{
@@ -100,14 +83,21 @@ label:hover {
     cursor:pointer;
 }
 
-
+/* Main */
 
 .main{
-    display: inline-flex;
+    display: inline-flex !important;
 }
 
+.ordering{
+    float:right;
 
+}
 
+.sortBy{
+    font-size: 12px;
+}
 
+/* items container */
 
 
