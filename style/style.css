@@ -74,6 +74,7 @@ aside{
     margin-top: 2em;
     border-right: 1px solid lightgrey;
     padding-right: 3em;
+    height: 100vh !important;
 }
 
 .tagTitle{
@@ -99,9 +100,13 @@ label:hover {
     cursor:pointer;
 }
 
+
+
 .main{
     display: inline-flex;
 }
+
+
 
 
 
