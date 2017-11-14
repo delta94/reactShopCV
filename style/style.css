@@ -87,19 +87,43 @@ label:hover {
 
 .main{
     display: inline-flex !important;
+    width: 100%
 }
 
 .ordering{
     width: 1100px;
-    margin-left: 10px;
     text-align: right;
     float:right;  
 }
 
 .sortBy{
     font-size: 12px;
+    margin-left: 25px;
+    
 }
 
-/* items container */
+/* item */
+.item{
+    width: 300px;
+    height: 400px;
+    border: 1px solid lightgrey;
+    margin:0.5em;
+}
 
+.imagem{
+    max-width: 265px !important;
+    max-height: 265px !important;
+    background-color: lightgrey;
+    margin:0px !important;
+    
+}
+
+.itemName{
+    font-size: 14px;
+    font-weight: bold
+}
+
+.fa-star{
+    color: goldenrod;
+}
 

@@ -13,7 +13,7 @@ export const items = {
   1: {
     title: 'React',
     description: 'Reacting with react',
-    image: 'http://via.placeholder.com/250/000000',
+    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
     price: 100,
     tag: 'Skills',
     id: 1,
@@ -23,7 +23,7 @@ export const items = {
   2: {
     title: 'Msc in Finance',
     description: 'Big money...not!',
-    image: 'http://via.placeholder.com/250/000000',
+    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
     price: 90,
     tag: 'Education',
     id: 2,
@@ -34,7 +34,7 @@ export const items = {
   3: {
     title: 'Doggy Style!',
     description: 'Doing it doggy style!',
-    image: 'http://via.placeholder.com/250/000000',
+    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
     price: 80,
     tag: 'FreeTime',
     id: 3,
@@ -43,8 +43,8 @@ export const items = {
   },
   4: {
     title: '65',
-    description: 'Manage them reservations like a bauss',
-    image: 'http://via.placeholder.com/250/000000',
+    description: 'Manage reservations',
+    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
     price: 70,
     tag: 'Projects',
     id: 4,
@@ -54,7 +54,7 @@ export const items = {
   5: {
     title: 'CGI',
     description: 'C#GI',
-    image: 'http://via.placeholder.com/250/000000',
+    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
     price: 1,
     tag: 'JobExperience',
     id: 5,

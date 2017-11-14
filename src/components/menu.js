@@ -78,7 +78,7 @@ class Menu extends Component{
 
     render(){ 
     return (
-        <div className="menu">
+        <div className="container-fluid menu">
             <div className="ordering">
             <span className="sortBy">Sort by: </span>
             <select value={this.state.selectedOrdering} className="filterSelect" onChange={this.onSelectChange}>
@@ -88,11 +88,9 @@ class Menu extends Component{
             </select>
         </div>
         <div className="container-fluid">
-                <div className="container">
                     <ul className="list-inline">
                         {this.renderItemList()}
                     </ul>
-                </div>
             </div>
         </div>
             )
