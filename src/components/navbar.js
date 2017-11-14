@@ -3,11 +3,12 @@ import Checkout from './checkout.js'
 
 export default ()=>{
     return (
-        
-            <div>
-                <h3>Welcome to fucking site
+        <nav className="navbar">
+            <img className="pull-left open" src="/src/img/open.png"/>
+            <a className="navbar-brand">ShopADev</a>
+            <span className="navbar-text">
                 <Checkout/>
-                </h3>
-            </div>
+            </span>
+        </nav>
     )
 };

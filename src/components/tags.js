@@ -14,8 +14,11 @@ class Tags extends Component{
         const tagsArr = _.values(this.props.selectedTags);
         return tagsArr.map(tag => {
             return(
-                <li className="list-group-item" key={tag.description}>
-                    <input type="checkbox" value={tag.description} onChange={(event) =>this.onTagChange(event)} checked = {tag.selected}/>{tag.description}
+                <li className="tagListItem" key={tag.description}>
+                    <label>
+                        <input type="checkbox" value={tag.description} onChange={(event) =>this.onTagChange(event)} checked = {tag.selected}/>
+                        <span className="tagLabel">{tag.description}</span>
+                    </label>
                 </li>
             )
         });
@@ -24,10 +27,12 @@ class Tags extends Component{
 
     render(){
         return (
-        <div className="list-group">
-            <h3>Categories</h3>
-            {this.renderTagsList()}
-        </div>
+        <aside className="tagAside">
+            <p className="tagTitle">Show results for:</p>
+            <ul className="tagList">
+                {this.renderTagsList()}
+            </ul>
+        </aside>
         )
     }
 }

@@ -15,13 +15,10 @@ class Checkout extends Component{
     })
 
     return (
-      <div>
-        <Link to="/checkout">
-          <span>Checkout</span>
+        <Link to="/checkout" className="pull-right cart">
+          <i className="fa fa-2x fa-shopping-cart cartIcon" aria-hidden="true"></i>
+          <span className="cartBadge">{cartSize}</span>
         </Link>
-        
-      </div>
-        
     );
   }
 }

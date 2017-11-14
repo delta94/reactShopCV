@@ -8,11 +8,12 @@ export default class Shop extends Component {
     return (
       <div>
         <Navbar />
-        <div className="col-md-2"><Tags/></div>        
-        <div className="container col-md-10 items">
+        <div className="main">
+        <Tags/>
+        <div className="container-fluid col-sm-9 items">
             <Menu />  
         </div>
-
+        </div>
       </div>
     );
   }

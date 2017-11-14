@@ -22,4 +22,4 @@ class Item extends Component{
 }
 
 
-export default connect(null,null)(Item)
+export default connect(null,null)(Item);
