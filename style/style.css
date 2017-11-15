@@ -187,5 +187,61 @@ select {
     color: #FDBD68;
 }
 
+.starBlack{
+    color: #6e6e6e;
+}
 
+/* itemDetail */
+
+.itemDetailImage{
+    text-align: center;
+    margin:1em 0em 1em 0em;
+}
+
+.itemDetailDescription{
+    background-color: #F8F8F8;
+    padding: 1em;
+}
+
+.fa-itemDetail{
+    margin-right: 1em;
+}
+
+.addToCartBtn{
+    margin-right: 1em;
+    background-color:#24303D !important;
+    border:1px solid #24303D !important
+}
+
+.itemDetailIcons{
+    margin-left: 1em;
+    margin-top: 1em;
+    font-size:14px;   
+    
+}
+
+.itemDetailIcons p {
+    color: #6e6e6e;
+}
+
+.itemDetailDescritionText{
+    color: #6e6e6e;
+    margin-left: 1em;
+    font-size:14px;   
+}
+
+.itemDetailTitle{
+    font-size: 16px;
+    margin: 1em 0em 1em 0em;
+}
+
+.backButton{
+    background-color:#FDBD68 !important;
+    color: white;
+}
+
+.backButton:hover{
+    color: white
+}
+    
 

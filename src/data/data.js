@@ -5,7 +5,7 @@ export const tags = {
   Education: { description: 'Education', selected: false },
   FreeTime: { description: 'FreeTime', selected: false },
   Projects: { description: 'Projects', selected: false },
-  JobExperience: { description: 'JobExperience', selected: false },
+  Work: { description: 'Work', selected: false },
 };
 
 
@@ -56,8 +56,19 @@ export const items = {
     description: 'C#GI',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 1,
-    tag: 'JobExperience',
+    tag: 'Work',
     id: 5,
+    relevance: 3,
+    stock: 10,
+  },
+  6: {
+    title: 'Table Tennis',
+    description: 'TT',
+    image: 'https://www.directtrophies.com.au/image/cache/data/category%20thumbnails/ping-pong-200x200.png',
+    video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/1Rr51iZZmS8?rel=0?ecver=1" frameBorder="0" gesture="media" allowFullScreen></iframe>',
+    price: 3,
+    tag: 'FreeTime',
+    id: 6,
     relevance: 3,
     stock: 10,
   },

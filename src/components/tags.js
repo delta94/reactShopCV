@@ -69,7 +69,7 @@ class Tags extends Component{
     render(){
         return (
         <aside className="tagAside">
-            <p className="tagTitle">Show results for:</p>
+            <p className="tagTitle">Filter by:</p>
             <ul className="tagList">
                 {this.renderTagsList()}
             </ul>

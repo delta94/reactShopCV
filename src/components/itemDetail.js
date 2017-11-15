@@ -11,9 +11,31 @@ class ItemDetail extends Component{
     
     alertOptions = {
     offset: 14,
-    position: 'bottom right',
-    theme: 'light',
+    position: 'bottom left',
+    theme: 'dark',
     transition: 'scale'
+    }
+
+    renderRating(nStars){
+        
+        // better way to do this
+        let stars=[];
+
+        for(let i = 1 ; i<6 ;i++){
+            stars.push(i)
+        }
+     
+        return stars.map(star => {
+            return (<i key={star}className="fa fa-star"/>)
+        })
+    }
+
+    renderImageOrVideo(item){
+        if(item.video){
+            return (<div dangerouslySetInnerHTML={{__html:item.video}}></div>)
+        } else {
+            return(<img src={item.image}></img>)
+        }
     }
 
       
@@ -42,9 +64,9 @@ class ItemDetail extends Component{
 
         if(item.stock >0){
             return (
-                <div>
+                <div className="pull-right">
                     {stockLevelAlert}
-                    <button className="btn btn-primary" onClick={() => {
+                    <button className="btn btn-primary addToCartBtn" onClick={() => {
                     this.showAlert()
                     this.addToCart(this.props.item.id);
                     this.updateStock(this.props.item.id)
@@ -63,18 +85,28 @@ class ItemDetail extends Component{
         return(
             <div> 
                 <Navbar />
-                <h1>Item detail</h1>
-                <div className="col-md-8">
-                    <img src={this.props.item.image}/>
+                <div className="container itemDetail">
+                    <div className="col-md-12 col-sm-12 col-xs-12 itemDetailImage">
+                        {this.renderImageOrVideo(this.props.item)}
+                        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/zJB-Ux4ScSA" frameBorder="0" allowFullScreen></iframe> */}
+                        
+                    </div>
+                    <div className="col-md-12 col-sm-12 col-xs-12 itemDetailDescription">
+                        <h4 className="itemDetailTitle">{this.props.item.title}</h4>     
+                        <p className="itemDetailDescritionText text-justify">Bacon ipsum dolor amet tail ham strip steak meatball jowl. Ribeye beef pastrami meatball strip steak doner, spare ribs short ribs biltong landjaeger bresaola pancetta. Turducken pig pork belly, burgdoggen cow capicola pancetta picanha jowl short ribs beef ribs shankle ham hock. Turducken beef pig shoulder. Tongue strip steak shankle andouille bacon beef ribs sirloin shoulder swine kevin picanha turducken. Alcatra ham turducken capicola tenderloin</p>
+                        <h4 className="itemDetailTitle">Product Info</h4>
+                        <div className="itemDetailIcons">
+                            <p><i className="fa fa-itemDetail fa-tag" aria-hidden="true"></i>{this.props.item.price} €</p>
+                            <p><i className="fa fa-itemDetail fa-puzzle-piece" aria-hidden="true"></i>{this.props.item.tag}</p>
+                            <p><i className="fa fa-itemDetail starBlack fa-star"></i>Reviews: {this.renderRating(5)}</p>
+                        </div>
+                        
+                        <Link to="/" className="btn backButton pull-right">Back</Link>
+                        {this.renderAddToCartButton(this.props.item)}
+                        <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+                    </div>
                 </div>
-                <div className="col-md-4">
-                    <p>{this.props.item.title}</p>                    
-                    <p>{this.props.item.description}</p>
-                    <p>{this.props.item.price}</p>
-                </div>
-                    {this.renderAddToCartButton(this.props.item)}
-                <Link to="/" className="btn btn-danger">Back</Link>
-                <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
+                
             </div>
 
         )
