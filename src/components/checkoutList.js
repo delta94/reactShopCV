@@ -12,14 +12,14 @@ class CheckoutList extends Component{
 
     alertOptions = {
         offset: 14,
-        position: 'bottom right',
-        theme: 'light',
+        position: 'bottom left',
+        theme: 'dark',
         transition: 'scale'
         }
     
           
         showAlert = () => {
-        this.msg.show('Item removed from cart!', {
+        this.msg.show('Item removed from cart', {
             time: 0,
             type: 'success',
             icon: <img />

@@ -49,30 +49,11 @@
     color:whitesmoke !important
 }
 
-
-.cartBadge{
-    color:black;
-    padding:2px;
-    padding-left: 4px;
-    padding-right: 4px;    
-    border-radius: 50%;
-    background-color: #FDBD68;
-    vertical-align: top;
-    font-size: 13px
+.shoppingCartText{
+    text-decoration: none !important;
+    color: whitesmoke !important;
+    font-size: 12px;
 }
-
-
-
-.cartIcon:hover{
-    color: #FDBD68 !important
-}
-.cartIcon::after{
-    -webkit-transition: .25s all ease;
-    -o-transition: .25s all ease;
-    transition: .25s all ease;
-
-}
-
 
 
 /* tags */
@@ -83,6 +64,7 @@ aside{
     border-right: 1px solid lightgrey;
     padding-right: 1em;
     height: 100vh !important;
+    padding-right: 5em;
 }
 
 .tagWrapper{
