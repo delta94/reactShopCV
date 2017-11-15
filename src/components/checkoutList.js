@@ -6,6 +6,7 @@ import {removeFromCart, resetStock} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import _ from 'lodash'
 import AlertContainer from 'react-alert'
+import Navbar from '../components/navbar.js'
 
 class CheckoutList extends Component{
 
@@ -37,12 +38,12 @@ class CheckoutList extends Component{
         if(cartSize >0){
             return(
                 <div>
-                    <Link to="/" className="btn btn-danger">Continue Shopping</Link>
-                    <Link to="/checkout/finish" className="btn btn-primary">Checkout</Link>
+                    <Link to="/checkout/finish" className="btn btn-primary pull-right checkoutBtn">Checkout</Link>
+                    <Link to="/" className="btn pull-right backButton">Continue Shopping</Link>
                 </div>
             )
         } else{
-            return(<Link to="/" className="btn btn-danger">Back</Link>)
+            return(<Link to="/" className="btn pull-right backButton">Back</Link>)
         }
         
     }
@@ -59,39 +60,67 @@ class CheckoutList extends Component{
         }        
 
         if(cartSize === 0){
-            return <h3>You have no items in your cart! Pick some items</h3>          
+            return (
+            <div className="container emptyCart">
+                <h1><i className="fa fa-shopping-cart" aria-hidden="true"></i>Your shopping cart is <strong>empty</strong>.</h1>
+                <Link to="/" className="btn backButton backButtonEmptyCart">Back</Link>
+            </div>
+            )
         }
 
-        return Object.keys(filteredCart).map(cartItemId => {
-            
+        const tableRows = Object.keys(filteredCart).map(cartItemId => {
             const item = items[cartItemId]
-            const itemQuantity = cart[cartItemId]
-
-            return(
-                <li key={item.id}>
-                    <h3>{item.description}</h3>
-                    <h3>{item.price}</h3>
-                    <h3>{itemQuantity}</h3>
-                    <button className="btn btn-warning" onClick={() => {
-                        this.onRemoveFromCartClick(item.id);
-                        this.showAlert();
-                    }}>Remove from cart</button>                           
-                </li>
+            const itemQuantity = filteredCart[cartItemId]
+            const itemTotal = itemQuantity * item.price
+            return (
+                <tbody>
+                    <tr>
+                        <td>
+                            <img className="itemThumbnail" src={item.image}></img>
+                              <Link className="checkoutItemLink" to={`/item/${item.id}`}>
+                                <span className="checkoutItemTitle">{item.title}</span>
+                              </Link>
+                        </td>
+                        <td>{item.price}€</td>
+                        <td>{itemQuantity}</td>
+                        <td>{itemTotal}€</td>
+                        <td>
+                        <button className="btn btn-warning btn-circle" onClick={() => {
+                            this.onRemoveFromCartClick(item.id);
+                            this.showAlert();
+                         }}><i className="fa fa-times" aria-hidden="true"></i></button>                           
+                        </td>         
+                    </tr>
+                </tbody>
             )
-        })
+        });
+
+        return (
+                <div className="container order">
+                    <h2 className="orderTitle">Your order:</h2>
+                <table className="table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>                            
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Total</th>
+                                <th></th>                           
+                            </tr> 
+                        </thead>
+                        {tableRows}
+                    </table>
+                        {this.renderListNavigationButtons()} 
+                </div>
+        )
     }
 
 
     render(){
         return(
             <div>
-                <h1>Checkoutlist</h1>
-                <div>
-                    <ul>
-                        {this.renderItemsInCartList()}
-                    </ul>
-                </div>
-                {this.renderListNavigationButtons()}
+                <Navbar/>
+                {this.renderItemsInCartList()}
                 <AlertContainer ref={a => this.msg = a} {...this.alertOptions} />
             </div>
         ) 

@@ -3,7 +3,7 @@ import _ from 'lodash';
 export const tags = {
   Skills: { description: 'Skills', selected: false },
   Education: { description: 'Education', selected: false },
-  FreeTime: { description: 'FreeTime', selected: false },
+  Fun: { description: 'Fun', selected: false },
   Projects: { description: 'Projects', selected: false },
   Work: { description: 'Work', selected: false },
 };
@@ -36,7 +36,7 @@ export const items = {
     description: 'Doing it doggy style!',
     image: 'http://whai-fm.sagacom.com/wp-content/blogs.dir/96/files/2013/04/WP-Dog-200x200.jpg',
     price: 80,
-    tag: 'FreeTime',
+    tag: 'Fun',
     id: 3,
     relevance: 2,
     stock: 10,
@@ -67,7 +67,7 @@ export const items = {
     image: 'https://www.directtrophies.com.au/image/cache/data/category%20thumbnails/ping-pong-200x200.png',
     video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/1Rr51iZZmS8?rel=0?ecver=1" frameBorder="0" gesture="media" allowFullScreen></iframe>',
     price: 3,
-    tag: 'FreeTime',
+    tag: 'Fun',
     id: 6,
     relevance: 3,
     stock: 10,

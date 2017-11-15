@@ -131,7 +131,7 @@ select {
     border-radius: .25em;
     color: grey;
     cursor: pointer;
-    font-size: 14px !important;
+    font-size: 12px !important;
     padding-left: 16px;
   }
 
@@ -147,6 +147,7 @@ select {
     -o-transition: .25s all ease;
     transition: .25s all ease;
     content: '\25BC';
+    font-size: 12px !important;    
     pointer-events: none;
   }
 
@@ -207,7 +208,7 @@ select {
     margin-right: 1em;
 }
 
-.addToCartBtn{
+.addToCartBtn, .checkoutBtn{
     margin-right: 1em;
     background-color:#24303D !important;
     border:1px solid #24303D !important
@@ -243,5 +244,105 @@ select {
 .backButton:hover{
     color: white
 }
-    
 
+/* checkout */
+.itemThumbnail{
+    width: 3em;
+    height: 3em;
+}
+
+thead{
+    font-size: 16px;
+}
+
+thead tr{
+    background-color: #F8F8F8
+}
+
+tbody{
+    color:#6e6e6e;
+    font-size:14px
+}
+
+table td{
+    vertical-align: middle !important;
+}
+
+.btn-circle {
+    width: 20px !important; 
+    height: 20px !important;
+    padding: 1px 0px !important;
+    border-radius: 50% !important;
+    text-align: center !important;
+    font-size: 12px !important;
+    line-height: 1.42857 !important;
+    background-color: red !important;
+    border-color:red !important
+  }
+
+  .checkoutItemTitle{
+      vertical-align: middle;
+      
+  }
+
+  .checkoutItemLink{
+      text-decoration: none;
+      font-size: 14px;
+      font-style: italic;
+      color:#6e6e6e;
+      padding-left: 1em;
+  }
+
+
+  .orderTitle{
+      margin: 1em 0 1em 0;
+  }
+
+  .checkoutBtn{
+      margin-left: 1em;
+  }
+
+  .emptyCart{
+      text-align: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+  }
+
+  .backButtonEmptyCart{
+      margin-top: 1em;
+  }
+
+  .fa-shopping-cart{
+      margin-right: 0.5em;
+  }
+
+.coverPage{
+    width: 100vw !important;
+    height: 100vh !important;
+    margin-left: 0px !important;
+    margin-right: 0px !important;
+    text-align:center   
+}
+
+.tr{
+    width: 23em;
+    height: 22em;
+    border-radius: 50%;
+}
+
+.coverPageLink{
+    color:lightgrey;
+    margin: 0 1em 0 1em;
+}
+
+.coverPageLink:hover{
+    color: rgb(173, 216, 230);
+}
+.coverPageLink::after{
+    -webkit-transition: color rgb(173, 216, 230) .25s all ease;
+    -o-transition: color rgb(173, 216, 230) .25s all ease;
+    transition: color rgb(173, 216, 230) .25s all ease;
+}
