@@ -18,7 +18,6 @@ class Checkout extends Component{
         <Link to="/checkout" className="pull-right cart">
           <i className="fa fa-shopping-cart cartIcon" aria-hidden="true"></i>
           <span className="shoppingCartText">Shopping Cart ({cartSize})</span>
-          {/* <span className="cartBadge">{cartSize}</span> */}
         </Link>
     );
   }

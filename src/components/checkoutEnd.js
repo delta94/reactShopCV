@@ -6,7 +6,7 @@ export default () => {
                 <div className="jumbotron-fluid">
                         <h1 className="display-3">Hello, world!</h1>
                                 <img className="tr" src="/src/img/tr.jpeg"></img>
-                                <p className="lead">It was a pleasure having as a costumer! Learn more about me below!</p>
+                                <p className="lead">It was a pleasure having you as a costumer! Learn more about me below!</p>
                                 <hr className="my-4"/>
                                 <p>Although this is just for fun...the skills are real!</p>
                                 <p className="lead">

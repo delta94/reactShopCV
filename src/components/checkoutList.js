@@ -68,10 +68,13 @@ class CheckoutList extends Component{
             )
         }
 
+        let cartValue = null;
+
         const tableRows = Object.keys(filteredCart).map(cartItemId => {
             const item = items[cartItemId]
             const itemQuantity = filteredCart[cartItemId]
             const itemTotal = itemQuantity * item.price
+            cartValue+=itemTotal
             return (
                 <tbody>
                     <tr>
@@ -98,19 +101,36 @@ class CheckoutList extends Component{
         return (
                 <div className="container order">
                     <h2 className="orderTitle">Your order:</h2>
-                <table className="table">
-                        <thead>
-                            <tr>
-                                <th>Product</th>                            
-                                <th>Price</th>
-                                <th>Quantity</th>
-                                <th>Total</th>
-                                <th></th>                           
-                            </tr> 
-                        </thead>
-                        {tableRows}
-                    </table>
-                        {this.renderListNavigationButtons()} 
+                    <div className="col-md-6">
+                        <table className="table">
+                            {/* <thead>
+                                <tr>
+                                    <th>Product</th>                            
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Total</th>
+                                    <th></th>                           
+                                </tr> 
+                            </thead> */}
+                            {tableRows}
+                        </table>
+                            {this.renderListNavigationButtons()}
+                    </div>
+                    <div className="col-md-offset-1 col-md-5">
+                            <div>Shopping Cart Summary</div>
+                            <div className="cartSummaryRow">
+                                <p>Cart Subtotal<span className="pull-right">{Math.round((cartValue*100)/100)}€</span></p>                                
+                            </div>
+                            <div className="cartSummaryRow">
+                                <p>VAT<span className="pull-right">{Math.round((cartValue*0.23)*100)/100}€</span></p> 
+                            </div>
+                            <div className="cartSummaryRow">
+                                <p>Total<span className="pull-right">{Math.round((cartValue*100)/100)+(Math.round((cartValue*0.23)*100)/100)}€</span></p> 
+                            </div>
+                            <div className="cartSummaryRow">
+                                <p className="pricelessText">A developer like Tiago Rodrigues<span className="pricelessSpan pull-right"><strong>PRICELESS</strong></span></p>
+                            </div>
+                    </div>
                 </div>
         )
     }

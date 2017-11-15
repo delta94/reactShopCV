@@ -1,3 +1,7 @@
+/* body{
+    background-color: darkgray !important;
+} */
+
 /* Navbar */
 
 .navbar{
@@ -328,3 +332,12 @@ table td{
     -o-transition: color rgb(173, 216, 230) .25s all ease;
     transition: color rgb(173, 216, 230) .25s all ease;
 }
+
+.pricelessText ,.pricelessSpan{
+    font-size: 20px;
+}
+
+.cartSummaryRow{
+    border: 1px solid black
+}
+
