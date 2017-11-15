@@ -130,6 +130,7 @@ class CheckoutList extends Component{
                             <div className="cartSummaryRow">
                                 <p className="pricelessText">A developer like Tiago Rodrigues<span className="pricelessSpan pull-right"><strong>PRICELESS</strong></span></p>
                             </div>
+                            https://codepen.io/mcbrwr/pen/Lnicj?q=css+hover&limit=all&type=type-pens
                     </div>
                 </div>
         )
