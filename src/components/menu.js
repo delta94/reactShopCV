@@ -10,21 +10,7 @@ import {numberOfTags, orderingType} from '../data/data.js'
 //this is a smart component. Needs to have access to items to render from state
 
 class Menu extends Component{
-    constructor(props){
-        super(props);
-        this.state = {selectedOrdering:null};
-
-        this.onSelectChange = this.onSelectChange.bind(this);
-    }
-
-    componentDidMount(){
-        this.setState({selectedOrdering:this.props.selectedOrdering})
-    }
     
-    onSelectChange(event){
-        this.setState({selectedOrdering:event.target.value})
-        this.props.setSelectedOrdering(event.target.value)
-    }
 
     orderItems(items){
         const ordering = this.props.selectedOrdering;
@@ -78,21 +64,11 @@ class Menu extends Component{
 
     render(){ 
     return (
-        <div className="container-fluid menu">
-            <div className="ordering">
-            <span className="sortBy">Sort by: </span>
-            <select value={this.state.selectedOrdering} className="filterSelect" onChange={this.onSelectChange}>
-                <option value={orderingType.category}>{orderingType.category}</option>
-                <option value={orderingType.priceAsc}>{orderingType.priceAsc}</option>
-                <option value={orderingType.priceDesc}>{orderingType.priceDesc}</option>
-            </select>
-        </div>
-        <div className="container-fluid">
+        <div className="container items">
                     <ul className="list-inline">
                         {this.renderItemList()}
                     </ul>
             </div>
-        </div>
             )
     }
 }

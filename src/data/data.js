@@ -13,7 +13,7 @@ export const items = {
   1: {
     title: 'React',
     description: 'Reacting with react',
-    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
+    image: 'https://avatars2.githubusercontent.com/u/9441414?s=280&v=4',
     price: 100,
     tag: 'Skills',
     id: 1,
@@ -23,7 +23,7 @@ export const items = {
   2: {
     title: 'Msc in Finance',
     description: 'Big money...not!',
-    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
+    image: 'http://www.audiologysolutionsnetwork.org/uploads/assets/1229/product/Audigy3.png?1403035146',
     price: 90,
     tag: 'Education',
     id: 2,
@@ -34,7 +34,7 @@ export const items = {
   3: {
     title: 'Doggy Style!',
     description: 'Doing it doggy style!',
-    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
+    image: 'http://whai-fm.sagacom.com/wp-content/blogs.dir/96/files/2013/04/WP-Dog-200x200.jpg',
     price: 80,
     tag: 'FreeTime',
     id: 3,
@@ -44,7 +44,7 @@ export const items = {
   4: {
     title: '65',
     description: 'Manage reservations',
-    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
+    image: 'http://www.thesuperweekend.co.uk/images/54ee883eb77f1.png',
     price: 70,
     tag: 'Projects',
     id: 4,
@@ -54,7 +54,7 @@ export const items = {
   5: {
     title: 'CGI',
     description: 'C#GI',
-    image: 'https://www.runnersworld.com/sites/runnersworld.com/files/styles/listicle_slide_custom_user_phone_1x/public/beagle2.jpg?itok=lv5EvG-2',
+    image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 1,
     tag: 'JobExperience',
     id: 5,

@@ -28,13 +28,14 @@ class Item extends Component{
                 <div className="item">
                     <div className="itemImage">
                     <Link to={`/item/${this.props.item.id}`}>
-                        <img className="imagem" src={this.props.item.image} alt="Card image cap" />
+                        <img src={this.props.item.image} alt="Card image cap" />
                     </Link>
                     </div>
                     <div className="itemDetailsWrapper">
                         <div className="itemName">{this.props.item.title}</div>
-                        <div className="itemRating"><span>{this.renderRating(5)}</span></div>
-                        <item className="price">{this.props.item.price}</item>
+                        <div className="itemTag">{this.props.item.tag}</div>                        
+                        <div className="itemRating pull-left"><span>{this.renderRating(5)}</span></div>
+                        <div className="itemPrice pull-right">{this.props.item.price}€</div>
                     </div>
                 </div>
             </li>

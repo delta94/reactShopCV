@@ -61,7 +61,7 @@ class ItemDetail extends Component{
 
     render(){
         return(
-            <div>
+            <div> 
                 <Navbar />
                 <h1>Item detail</h1>
                 <div className="col-md-8">
