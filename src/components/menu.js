@@ -5,6 +5,7 @@ import Item from '../components/item.js'
 import {setSelectedOrdering} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import {numberOfTags, orderingType} from '../data/data.js'
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 
 
 //this is a smart component. Needs to have access to items to render from state
