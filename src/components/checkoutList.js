@@ -14,13 +14,14 @@ class CheckoutList extends Component{
         offset: 14,
         position: 'bottom left',
         theme: 'dark',
+        time: 1000,        
         transition: 'scale'
         }
     
           
         showAlert = () => {
         this.msg.show('Item removed from cart', {
-            time: 0,
+            time: 1000,
             type: 'success',
             icon: <img />
         })
@@ -108,7 +109,7 @@ class CheckoutList extends Component{
                     <h2 className="orderTitle">Your order:</h2>
                     <div className="col-md-8">
                         <table className="table">
-                            {/* <thead>
+                            <thead>
                                 <tr>
                                     <th>Product</th>                            
                                     <th>Price</th>
@@ -116,7 +117,7 @@ class CheckoutList extends Component{
                                     <th>Total</th>
                                     <th></th>                           
                                 </tr> 
-                            </thead> */}
+                            </thead>
                             {tableRows}
                         </table>
                             

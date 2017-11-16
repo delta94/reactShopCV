@@ -12,8 +12,17 @@ class ItemDetail extends Component{
     alertOptions = {
     offset: 14,
     position: 'bottom left',
+    time: 1000,
     theme: 'dark',
     transition: 'scale'
+    }
+
+    showAlert = () => {
+        this.msg.show('Item added to Cart', {
+            time: 1000,
+            type: 'success',
+            icon: <img />
+        })
     }
 
     renderRating(nStars){
@@ -38,15 +47,7 @@ class ItemDetail extends Component{
         }
     }
 
-      
-    showAlert = () => {
-    this.msg.show('Item added to Cart', {
-        time: 0,
-        type: 'success',
-        icon: <img />
-    })
-    }
-
+         
     updateStock(id){
         this.props.updateStock(id);
     }
@@ -56,16 +57,9 @@ class ItemDetail extends Component{
     }
 
     renderAddToCartButton(item){
-
-        let stockLevelAlert
-
-        (item.stock >=1 && item.stock <=5) ? stockLevelAlert = <div className="text-danger">Hurry up! Only {item.stock} available!</div> : stockLevelAlert=null 
-         
-
         if(item.stock >0){
             return (
                 <div className="pull-right">
-                    {stockLevelAlert}
                     <button className="btn btn-primary addToCartBtn" onClick={() => {
                     this.showAlert()
                     this.addToCart(this.props.item.id);
@@ -74,14 +68,22 @@ class ItemDetail extends Component{
                 </button>
                 </div>  
             )
-        } else{
-            return <h4>Too late! Item is sold out!</h4>
-        }
-
-        
+        }  
     }
 
     render(){
+
+        let stockLevelAlert
+
+        if(this.props.item.stock >=1 && this.props.item.stock <=5){
+            stockLevelAlert = <div className="text-danger pull-right stock-alert">Hurry up! Only {this.props.item.stock} available!</div>
+        } else if(this.props.item.stock == 0){
+            stockLevelAlert = <div className="text pull-right soldOut">Too late, item is sold out <i className="fa fa-frown-o" aria-hidden="true"></i></div>
+        } else {
+            stockLevelAlert=null
+        }
+        
+
         return(
             <div> 
                 <Navbar />
@@ -98,6 +100,7 @@ class ItemDetail extends Component{
                         <div className="itemDetailIcons">
                             <p><i className="fa fa-itemDetail fa-tag" aria-hidden="true"></i>{this.props.item.price} €</p>
                             <p><i className="fa fa-itemDetail fa-puzzle-piece" aria-hidden="true"></i>{this.props.item.tag}</p>
+                            {stockLevelAlert}
                             <p><i className="fa fa-itemDetail starBlack fa-star"></i>Reviews: {this.renderRating(5)}</p>
                         </div>
                         
