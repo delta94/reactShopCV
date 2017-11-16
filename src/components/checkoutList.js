@@ -49,7 +49,7 @@ class CheckoutList extends Component {
     });
     
     return(
-    <div className="col-md-offset-1 col-md-3">
+    <div className="col-lg-offset-1 col-lg-3 col-xs-12 col-sm-offset-1 col-sm-3 col-md-offset-1 col-md-3">
     <div className="shopping_cart_summary">Shopping Cart Summary</div>
     <div className="cartSummaryRow">
       <p>
@@ -125,41 +125,27 @@ class CheckoutList extends Component {
         const itemQuantity = filteredCart[cartItemId];
         const itemTotal = itemQuantity * item.price;
         
-    
-    const cartItemAppearTransitionOptions = {
-        transitionName:"cartItem",
-        transitionAppear:true,
-        transitionEnter:false,
-        transitionLeave:true,
-        transitionAppearTimeout:5000,
-        transitionLeaveTimeout:5000,
-        transitionEnterTimeout:0,
-    };
-
-
+  
     return(
-    <ReactCSSTransitionGroup component="tr" key={cartItemId} {...cartItemAppearTransitionOptions}>
-      <td>
-        <img className="itemThumbnail" src={item.image} />
-        <Link className="checkoutItemLink" to={`/item/${item.id}`}>
-          <span className="checkoutItemTitle">{item.title}</span>
-        </Link>
-      </td>
-      <td>{item.price}€</td>
-      <td>{itemQuantity}</td>
-      <td>{itemTotal}€</td>
-      <td>
-        <button
-          className="btn"
-          onClick={() => {
-            this.onRemoveFromCartClick(item.id);
-            this.showAlert();
-          }}
-        >
-          &times;
-        </button>
-      </td>
-        </ReactCSSTransitionGroup>);
+    <div className="row" key={cartItemId}>
+            <div className="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+              <img className="itemThumbnail" src={item.image} />
+              <Link className="checkoutItemLink" to={`/item/${item.id}`}>
+                <span className="checkoutItemTitle">{item.title}</span>
+              </Link>
+            </div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-md-2 shopping_cart_item_info"><p>{item.price}€</p></div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-md-2 shopping_cart_item_info"><p>{itemQuantity}</p></div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-md-2 shopping_cart_item_info"><p>{itemTotal}€</p></div>
+            <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3 col-md-3 shopping_cart_item_info">
+            <button className="btn" onClick={() => {
+                this.onRemoveFromCartClick(item.id);
+                this.showAlert();
+                }}>&times;
+            </button>
+            </div>
+        </div>
+        )
     })
 
     return tableRows;
@@ -182,25 +168,33 @@ class CheckoutList extends Component {
         </div>
       );
     }
+
+    const cartItemAppearTransitionOptions = {
+        transitionName:"cartItem",
+        transitionAppear:true,
+        transitionEnter:false,
+        transitionLeave:true,
+        transitionAppearTimeout:2500,
+        transitionLeaveTimeout:2500,
+        transitionEnterTimeout:0,
+    };
+
     
     return (
       <div className="order">
         <h2 className="orderTitle">Your order:</h2>
-        <div className="col-md-8">
-          <table className="table">
-            <thead>
-              <tr>
-                <th>Product</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Total</th>
-                <th />
-              </tr>
-            </thead>
-            <tbody>
-            {this.renderCartItem(filteredCart)}
-        </ tbody>
-    </table>
+        <div className="col-lg-8 col-xs-8 col-sm-8 col-md-8">
+
+          <div className="shopping_cart_table_header row">
+            <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3">Product</div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2">Price</div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2">Quantity</div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2">Total</div>
+            <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3">Remove</div>            
+          </div>
+              <ReactCSSTransitionGroup component="div" {...cartItemAppearTransitionOptions}>
+                {this.renderCartItem(filteredCart)}
+              </ReactCSSTransitionGroup>
         </div>
     </div>
     );

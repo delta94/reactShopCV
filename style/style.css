@@ -1,8 +1,6 @@
-/* body{
-    background-color: darkgray !important;
-} */
-
-/* Navbar */
+.btn{
+    background-color: transparent !important;
+}
 
 .navbar{
     background-color: #23303e;
@@ -297,7 +295,7 @@ table td{
 
   .checkoutItemLink{
       text-decoration: none;
-      font-size: 14px;
+      font-size: 12px;
       font-style: italic;
       color:#6e6e6e;
       padding-left: 1em;
@@ -365,7 +363,8 @@ table td{
     color: #373a3c;
     border: none;
     font-weight: bold;
-    line-height: 1.3 !important
+    line-height: 1.3 !important;
+    background-color: transparent !important;
 }
 
 .priceless:hover:before {
@@ -373,9 +372,10 @@ table td{
     font-size:1em !important;
     margin-right:1em;
     color: #373a3c;
+    background-color: transparent !important;    
 }
 
-.shopping_cart_summary{
+.shopping_cart_summary, .shopping_cart_table_header{
     text-transform: uppercase;
     font-weight: bold;
     padding-bottom: 1em;
@@ -393,6 +393,18 @@ table td{
 .shopping_cart_price{
     font-weight: bold;
     color:#373a3c
+}
+
+.shopping_cart_item_info{
+    font-size: 14px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.shopping_cart_item_info > p{
+    margin: 0px;
+    align-content: bottom ;
+    padding-top: 1em;    
 }
 
 .cartSummaryTotal{
@@ -415,6 +427,7 @@ table td{
 }
 
 
+
 /* transitions */
 /* starting state of animation */
 .cartItem-appear{
@@ -430,11 +443,11 @@ table td{
 }
 
 .cartItem-leave{
-    background-color: red;
+    opacity: 1;
 }
 
 .cartItem-leave-active{
-    background-color: blue;
+    opacity: 0;
     transition: 1.2s ease-in all
     
 }
