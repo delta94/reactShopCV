@@ -37,9 +37,14 @@ class CheckoutList extends Component{
 
         if(cartSize >0){
             return(
-                <div>
-                    <Link to="/checkout/finish" className="btn btn-primary pull-right checkoutBtn">Checkout</Link>
-                    <Link to="/" className="btn pull-right backButton">Continue Shopping</Link>
+                <div>   
+                    <div className="checkoutBtnDiv">
+                        <Link to="/checkout/finish" className="btn btn-primary checkoutBtn">Checkout</Link>
+                        
+                    </div>
+                    <div className="checkoutBtnDivBack">
+                        <Link to="/" className="checkoutBtnBack">Continue Shopping</Link>
+                    </div>
                 </div>
             )
         } else{
@@ -88,10 +93,10 @@ class CheckoutList extends Component{
                         <td>{itemQuantity}</td>
                         <td>{itemTotal}€</td>
                         <td>
-                        <button className="btn btn-warning btn-circle" onClick={() => {
+                        <button className="btn" onClick={() => {
                             this.onRemoveFromCartClick(item.id);
                             this.showAlert();
-                         }}><i className="fa fa-times" aria-hidden="true"></i></button>                           
+                         }}>&times;</button>                           
                         </td>         
                     </tr>
                 </tbody>
@@ -101,7 +106,7 @@ class CheckoutList extends Component{
         return (
                 <div className="container order">
                     <h2 className="orderTitle">Your order:</h2>
-                    <div className="col-md-6">
+                    <div className="col-md-8">
                         <table className="table">
                             {/* <thead>
                                 <tr>
@@ -114,24 +119,26 @@ class CheckoutList extends Component{
                             </thead> */}
                             {tableRows}
                         </table>
-                            {this.renderListNavigationButtons()}
+                            
                     </div>
-                    <div className="col-md-offset-1 col-md-5">
-                            <div>Shopping Cart Summary</div>
+                    <div className="col-md-offset-1 col-md-3">
+                            <div className="shopping_cart_summary">Shopping Cart Summary</div>
                             <div className="cartSummaryRow">
-                                <p>Cart Subtotal<span className="pull-right">{Math.round((cartValue*100)/100)}€</span></p>                                
+                                {/* <span><p className="shopping_cart_subtitle">Cart:</p></span>                                 */}
+                                <p>Items<span className="shopping_cart_price pull-right">{Math.round((cartValue*100)/100)}€</span></p>                                
                             </div>
                             <div className="cartSummaryRow">
-                                <p>VAT<span className="pull-right">{Math.round((cartValue*0.23)*100)/100}€</span></p> 
+                                <p>VAT<span className="shopping_cart_price pull-right">{Math.round((cartValue*0.23)*100)/100}€</span></p> 
                             </div>
                             <div className="cartSummaryRow">
-                                <p>Total<span className="pull-right">{Math.round((cartValue*100)/100)+(Math.round((cartValue*0.23)*100)/100)}€</span></p> 
+                                <p>Total<span className="shopping_cart_price pull-right">{Math.round((cartValue*100)/100)+(Math.round((cartValue*0.23)*100)/100)}€</span></p> 
                             </div>
+                            <div className="shopping_cart_summary">Extras</div>
                             <div className="cartSummaryRow">
-                                <p className="pricelessText">A developer like Tiago Rodrigues<span className="pricelessSpan pull-right"><strong>PRICELESS</strong></span></p>
+                                {/* <span><p className="shopping_cart_subtitle">Extras:</p></span> */}
+                                <p className="pricelessText">Tiago Rodrigues<button className="priceless pull-right" data-hover="PRICELESS!">?</button></p>
                             </div>
-                            https://codepen.io/mcbrwr/pen/Lnicj?q=css+hover&limit=all&type=type-pens
-                            https://lemonstand.com/theme-demo?theme=barcelona
+                            {this.renderListNavigationButtons()}
                     </div>
                 </div>
         )

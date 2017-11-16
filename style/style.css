@@ -194,11 +194,42 @@ select {
     margin-right: 1em;
 }
 
-.addToCartBtn, .checkoutBtn{
+.addToCartBtn{
     margin-right: 1em;
     background-color:#24303D !important;
-    border:1px solid #24303D !important
+    border:1px solid #24303D !important;
+ 
 }
+
+.checkoutBtn{
+    background-color:#24303D !important;
+    border:1px solid #24303D !important;
+    width:100%;
+    margin:0px !important;
+    padding-top: 1em !important;
+    padding-bottom: 1em !important;
+}
+
+.checkoutBtnDiv{
+    text-align: center;
+    margin-top: 5em !important;
+}
+
+.checkoutBtnBack{
+    font-size: 14px;
+    color:#6e6e6e
+}
+
+.checkoutBtnBack:hover{
+    color:#6e6e6e
+}
+
+
+.checkoutBtnDivBack{
+    text-align: center;
+    margin-top: 0.5em !important;
+}
+
 
 .itemDetailIcons{
     margin-left: 1em;
@@ -254,17 +285,6 @@ table td{
     vertical-align: middle !important;
 }
 
-.btn-circle {
-    width: 20px !important; 
-    height: 20px !important;
-    padding: 1px 0px !important;
-    border-radius: 50% !important;
-    text-align: center !important;
-    font-size: 12px !important;
-    line-height: 1.42857 !important;
-    background-color: red !important;
-    border-color:red !important
-  }
 
   .checkoutItemTitle{
       vertical-align: middle;
@@ -333,11 +353,53 @@ table td{
     transition: color rgb(173, 216, 230) .25s all ease;
 }
 
-.pricelessText ,.pricelessSpan{
-    font-size: 20px;
+
+
+.priceless {
+    color: #373a3c;
+    border: none;
+    font-weight: bold;
+}
+
+.priceless:hover:before {
+    content: attr(data-hover);
+    font-size:1em !important;
+    margin-right:1em;
+    color: #373a3c;
+}
+
+.shopping_cart_summary{
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-bottom: 1em;
+    margin-bottom:1em;
+    border-bottom: 2px solid #6e6e6e;
+    text-align: center
+
 }
 
 .cartSummaryRow{
-    border: 1px solid black
+    text-transform: uppercase;
+    color:#6e6e6e;
+    font-size:14px;
+}
+
+.shopping_cart_price{
+    font-weight: bold;
+    color:#373a3c
+}
+
+.cartSummaryTotal{
+    margin-bottom:1em;
+    border-bottom: 2px solid #6e6e6e;
+}
+
+.shopping_cart_subtitle{
+  color:#f39c12;
+  text-align: center;   
+}
+
+.fa-times{
+    font-size: normal;
 }
 
