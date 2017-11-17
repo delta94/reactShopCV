@@ -12,7 +12,7 @@ class ItemDetail extends Component{
     alertOptions = {
     offset: 14,
     position: 'bottom left',
-    time: 1000,
+    time: 0,
     theme: 'dark',
     transition: 'scale'
     }

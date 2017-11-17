@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Navbar from './navbar.js'
 import Menu from './menu.js'
 import Tags from './tags.js'
+import Footer from './footer.js'
 
 export default class Shop extends Component {
   render() {
@@ -10,8 +11,9 @@ export default class Shop extends Component {
         <Navbar />
         <div className="main">
             <Tags/>
-            <Menu />  
+            <Menu />
         </div>
+        <Footer /> 
       </div>
     );
   }

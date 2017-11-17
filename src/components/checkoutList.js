@@ -171,10 +171,10 @@ class CheckoutList extends Component {
     const cartItemAppearTransitionOptions = {
         transitionName:"cartItem",
         transitionAppear:false,
-        transitionEnter:true,
+        transitionEnter:false,
         transitionLeave:true,
         transitionAppearTimeout:2500,
-        transitionLeaveTimeout:2500,
+        transitionLeaveTimeout:1500,
         transitionEnterTimeout:2500,
     };
 

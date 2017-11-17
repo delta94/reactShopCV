@@ -11,12 +11,14 @@
 .navbar-brand{
     color: whitesmoke;
     text-decoration: none;
-    font-size: 30px !important
+    font-size: 24px !important
 }
 
-.navbar-brand:hover{
-    color: whitesmoke;
+.navbar-brand small{
+    color: #FDBD68;
 }
+
+
 .open{
     margin-right: 1em;
     margin-top: 0.5em;
@@ -144,7 +146,6 @@ select {
 /* item */
 .items{
     margin-top:2em;
-    margin-bottom:2em;    
 }
 
 .item{
@@ -339,6 +340,7 @@ table td{
     text-align:center   
 }
 
+/* this is a picture */
 .tr{
     width: 23em;
     height: 22em;
@@ -355,13 +357,14 @@ table td{
 .coverPageLink:hover{
     color: rgb(173, 216, 230);
 }
-.coverPageLink::after{
-    -webkit-transition: color rgb(173, 216, 230) .25s all ease;
-    -o-transition: color rgb(173, 216, 230) .25s all ease;
-    transition: color rgb(173, 216, 230) .25s all ease;
+
+.jumbotron-fluid{
+    margin-top:5em;
 }
 
-
+.lead{
+    margin-top: 1em;
+}
 
 .priceless {
     color: #373a3c;
@@ -453,6 +456,25 @@ table td{
     color:#23303e
 }
 
+.footer{
+    width: 100vw !important;
+    margin-left: -15px !important;
+    margin-right: -15px !important;
+    padding-left: 15px;
+    padding-top: 2em;
+    padding-bottom: 1em;    
+    padding-right: 15px;
+    position: relative;    
+    text-align:right;
+    background-color:#23303e;
+    color:whitesmoke;
+    font-size:0.75em;
+}
+
+.footer span {
+    margin-right: 1em;
+}
+
 /* transitions */
 /* starting state of animation */
 .cartItem-appear{
@@ -475,7 +497,7 @@ table td{
 .cartItem-leave-active{
     opacity: 0;
     transform:   translate(-250px,0px);
-    transition: 2.5s ease-in all
+    transition: 1.5s ease-in all
 }
 
 .cartItem-enter{

@@ -51,7 +51,6 @@ export function removeFromCart(id){
 }
 
 export function setFirstTimeVisit(firstTime){
-    console.log('in action creator bool is' , firstTime);
     return{
         type:FIRST_TIME_VISIT,
         payload:firstTime
