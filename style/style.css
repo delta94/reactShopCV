@@ -14,6 +14,11 @@
     font-size: 24px !important
 }
 
+.navbar-brand:hover{
+    text-decoration: none;
+    color: whitesmoke
+}
+
 .navbar-brand small{
     color: #FDBD68;
 }
@@ -458,6 +463,7 @@ table td{
 
 .footer{
     width: 100vw !important;
+    margin-top:2em;
     margin-left: -15px !important;
     margin-right: -15px !important;
     padding-left: 15px;

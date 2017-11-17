@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 import {BrowserRouter, Route , Switch} from 'react-router-dom';
-import { AnimatedSwitch } from 'react-router-transition';
 import Shop from './components/shop';
 import ItemDetail from './components/itemDetail.js'
 import CheckoutList from './components/checkoutList.js'

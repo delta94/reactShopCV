@@ -95,7 +95,7 @@ class ItemDetail extends Component{
                     </div>
                     <div className="col-md-12 col-sm-12 col-xs-12 itemDetailDescription">
                         <h4 className="itemDetailTitle">{this.props.item.title}</h4>     
-                        <p className="itemDetailDescritionText text-justify">Bacon ipsum dolor amet tail ham strip steak meatball jowl. Ribeye beef pastrami meatball strip steak doner, spare ribs short ribs biltong landjaeger bresaola pancetta. Turducken pig pork belly, burgdoggen cow capicola pancetta picanha jowl short ribs beef ribs shankle ham hock. Turducken beef pig shoulder. Tongue strip steak shankle andouille bacon beef ribs sirloin shoulder swine kevin picanha turducken. Alcatra ham turducken capicola tenderloin</p>
+                        <p className="itemDetailDescritionText text-justify">{this.props.item.description}</p>
                         <h4 className="itemDetailTitle">Product Info</h4>
                         <div className="itemDetailIcons">
                             <p><i className="fa fa-itemDetail fa-tag" aria-hidden="true"></i>{this.props.item.price} €</p>

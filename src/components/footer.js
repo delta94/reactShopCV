@@ -6,6 +6,5 @@ export default () => {
                 <i className="fa fa-copyright" aria-hidden="true"></i>
                 <span> TR_2017</span>
             </div>
-
         )
     }
