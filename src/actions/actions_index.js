@@ -4,6 +4,7 @@ export const UPDATE_STOCK = 'UPDATE_STOCK';
 export const SET_ORDERING = "SET_ORDERING";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
 export const RESET_STOCK = "RESET_STOCK"
+export const FIRST_TIME_VISIT = "FIRST_TIME_VISIT";
 
 
 
@@ -46,5 +47,13 @@ export function removeFromCart(id){
     return{
         type:REMOVE_FROM_CART,
         payload:id
+    }
+}
+
+export function setFirstTimeVisit(firstTime){
+    console.log('in action creator bool is' , firstTime);
+    return{
+        type:FIRST_TIME_VISIT,
+        payload:firstTime
     }
 }

@@ -1,6 +1,3 @@
-.btn{
-    background-color: transparent !important;
-}
 
 .navbar{
     background-color: #23303e;
@@ -226,6 +223,7 @@ select {
 .checkoutBtnDivBack{
     text-align: center;
     margin-top: 0.5em !important;
+    margin-bottom: 3em !important;
 }
 
 
@@ -260,10 +258,17 @@ select {
     color: white
 }
 
+
 /* checkout */
+
+.shopping_cart_item_thumbnail_div{
+    text-align: center;
+}
+
 .itemThumbnail{
     width: 3em;
     height: 3em;
+    margin-bottom: 0.5em;
 }
 
 thead{
@@ -293,17 +298,16 @@ table td{
       
   }
 
-  .checkoutItemLink{
-      text-decoration: none;
-      font-size: 12px;
-      font-style: italic;
-      color:#6e6e6e;
-      padding-left: 1em;
-  }
-
 
   .orderTitle{
-      margin: 1em 0 1em 0;
+      margin: 1em 0 2em 0;
+      text-transform: uppercase;
+      font-size:4vh;
+      font-weight: bold;      
+  }
+
+  .order-items{
+      margin-bottom: 5em;
   }
 
   .checkoutBtn{
@@ -382,8 +386,17 @@ table td{
     margin-bottom:1em;
     border-bottom: 2px solid #6e6e6e;
     text-align: center
-
 }
+
+
+@media (max-width: 999px) 
+{
+    .shopping_cart_table_header
+    {
+        display: none;
+    }
+}
+
 
 .cartSummaryRow{
     color:#6e6e6e;
@@ -397,6 +410,7 @@ table td{
 
 .shopping_cart_item_info{
     font-size: 14px;
+    font-size:1.65vh;
     text-align: center;
     vertical-align: middle;
 }
@@ -417,16 +431,27 @@ table td{
   text-align: center;   
 }
 
+.shopping_cart_item_row{
+    border-bottom: 1px solid lightgray;
+    margin-top: 1em;    
+    margin-bottom: 1em;
+}
+
+.remove-btn{
+    background-color: transparent !important;
+    font-size:1.65vh;
+    text-align: center;
+    vertical-align: middle;
+}
+
 .stock-alert{
     font-weight: bold
 }
 
 .soldOut{
     font-weight: bold;    
-    color:#6e6e6e
+    color:#23303e
 }
-
-
 
 /* transitions */
 /* starting state of animation */
@@ -450,5 +475,52 @@ table td{
 .cartItem-leave-active{
     opacity: 0;
     transform:   translate(-250px,0px);
-    transition: 1s ease-in all
+    transition: 2.5s ease-in all
+}
+
+.cartItem-enter{
+    opacity: 0.01;
+}
+
+/* end state of animation */
+.cartItem-enter-active {
+    opacity: 1;
+    transition: 2s ease-in all
+}
+
+.menu-appear{
+    opacity: 0;
+    -webkit-transform: rotate(-360deg);
+    -moz-transform: rotate(-360deg);
+    -ms-transform: rotate(-360deg);
+    -o-transform: rotate(-360deg);
+    transform: scale(0) rotate(-360deg);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+
+    -webkit-transition: 2000 linear all;
+    -moz-transition: 2000 linear all;
+    -o-transition: 2000 linear all;
+    
+    
+}
+
+.menu-appear-active{
+    opacity: 1;
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: scale(1) rotate(0deg);
+
+    -webkit-transform-origin: 50% 50%;
+    -moz-transform-origin: 50% 50%;
+    -ms-transform-origin: 50% 50%;
+    -o-transform-origin: 50% 50%;
+    transform-origin: 50% 50%;
+    transition: 2000ms linear all;
 }

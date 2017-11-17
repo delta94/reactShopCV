@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 import Item from '../components/item.js'
-import {setSelectedOrdering} from '../actions/actions_index.js'
+import {setSelectedOrdering ,setFirstTimeVisit} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import {numberOfTags, orderingType} from '../data/data.js'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
@@ -11,7 +11,6 @@ import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 //this is a smart component. Needs to have access to items to render from state
 
 class Menu extends Component{
-    
 
     orderItems(items){
         const ordering = this.props.selectedOrdering;
@@ -36,6 +35,7 @@ class Menu extends Component{
     }
 
     renderItemList(){
+        
         const itemsArr = _.valuesIn(this.props.items);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
         const activeTagsCount = Object.values(activeTags).reduce((accumulator,current) => {
@@ -62,24 +62,42 @@ class Menu extends Component{
             })
     };
 
+    componentDidMount(){
+        this.props.setFirstTimeVisit(false);
+    }
 
-    render(){ 
+
+    render(){
+        const menuTransitionOptions = {
+            transitionName:"menu",
+            transitionAppear:this.props.firstTimeVisit,
+            transitionEnter:false,
+            transitionLeave:false,
+            transitionAppearTimeout:2000,
+            transitionLeaveTimeout:2500,
+            transitionEnterTimeout:2500,
+        };
+
+        
+    
     return (
         <div className="container items">
                     <ul className="list-inline">
-                        {this.renderItemList()}
+                        <ReactCSSTransitionGroup {...menuTransitionOptions}>
+                         {this.renderItemList()}
+                        </ReactCSSTransitionGroup>
                     </ul>
             </div>
             )
     }
 }
 
-function mapStateToProps({selectedTags,items,selectedOrdering}){
-    return {selectedTags,items,selectedOrdering}
+function mapStateToProps({selectedTags,items,selectedOrdering,firstTimeVisit}){
+    return {selectedTags,items,selectedOrdering,firstTimeVisit}
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({setSelectedOrdering:setSelectedOrdering},dispatch);
+    return bindActionCreators({setSelectedOrdering:setSelectedOrdering,setFirstTimeVisit:setFirstTimeVisit},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Menu);

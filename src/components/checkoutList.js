@@ -49,7 +49,7 @@ class CheckoutList extends Component {
     });
     
     return(
-    <div className="col-lg-offset-1 col-lg-3 col-xs-12 col-sm-12 col-md-offset-1 col-md-3">
+    <div className="col-lg-offset-1 col-lg-3 col-xs-12 col-sm-12 col-md-12">
     <div className="shopping_cart_summary">Shopping Cart Summary</div>
     <div className="cartSummaryRow">
       <p>
@@ -68,8 +68,8 @@ class CheckoutList extends Component {
     <div className="cartSummaryRow">
       <p>
         Total<span className="shopping_cart_price pull-right">
-          {Math.round(cartValue * 100 / 100) +
-            Math.round(cartValue * 0.23 * 100) / 100}€
+          {(Math.round(cartValue * 100 / 100) +
+            Math.round(cartValue * 0.23 * 100) / 100).toFixed(2)}€
         </span>
       </p>
     </div>
@@ -127,18 +127,17 @@ class CheckoutList extends Component {
         
   
     return(
-    <div className="row" key={cartItemId} style={{"animationDelay":(500)+"ms"}}>
-            <div className="col-lg-3 col-xs-12 col-sm-12 col-md-3">
-              <img className="itemThumbnail" src={item.image} />
-              <Link className="checkoutItemLink" to={`/item/${item.id}`}>
-                <span className="checkoutItemTitle">{item.title}</span>
+    <div className="row shopping_cart_item_row" key={cartItemId}>
+            <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3 shopping_cart_item_thumbnail_div">
+              <Link to={`/item/${item.id}`}>
+                <img className="itemThumbnail" src={item.image} />
               </Link>
             </div>
-            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-md-2 shopping_cart_item_info"><p>{item.price}€</p></div>
-            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-md-2 shopping_cart_item_info"><p>{itemQuantity}</p></div>
-            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 col-md-2 shopping_cart_item_info"><p>{itemTotal}€</p></div>
-            <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3 col-md-3 shopping_cart_item_info">
-            <button className="btn" onClick={() => {
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{item.price}€</p></div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{itemQuantity}</p></div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{itemTotal}€</p></div>
+            <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3 shopping_cart_item_info">
+            <button className="btn remove-btn" onClick={() => {
                 this.onRemoveFromCartClick(item.id);
                 this.showAlert();
                 }}>&times;
@@ -172,10 +171,10 @@ class CheckoutList extends Component {
     const cartItemAppearTransitionOptions = {
         transitionName:"cartItem",
         transitionAppear:false,
-        transitionEnter:false,
+        transitionEnter:true,
         transitionLeave:true,
         transitionAppearTimeout:2500,
-        transitionLeaveTimeout:500,
+        transitionLeaveTimeout:2500,
         transitionEnterTimeout:2500,
     };
 
@@ -183,7 +182,7 @@ class CheckoutList extends Component {
     return (
       <div className="order">
         <h2 className="orderTitle">Your order:</h2>
-        <div className="col-lg-8 col-xs-8 col-sm-8 col-md-8">
+        <div className="col-lg-8 col-xs-12 col-sm-12 col-md-12 order-items">
 
           <div className="shopping_cart_table_header row">
             <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3">Product</div>

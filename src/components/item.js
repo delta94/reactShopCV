@@ -28,7 +28,7 @@ class Item extends Component{
                 <div className="item">
                     <div className="itemImage">
                     <Link to={`/item/${this.props.item.id}`}>
-                        <img src={this.props.item.image} alt="Card image cap" />
+                        <img className="img-fluid img-thumbnail" src={this.props.item.image} alt={this.props.item.title} />
                     </Link>
                     </div>
                     <div className="itemDetailsWrapper">
