@@ -49,7 +49,7 @@ class CheckoutList extends Component {
     });
     
     return(
-    <div className="col-lg-offset-1 col-lg-3 col-xs-12 col-sm-offset-1 col-sm-3 col-md-offset-1 col-md-3">
+    <div className="col-lg-offset-1 col-lg-3 col-xs-12 col-sm-12 col-md-offset-1 col-md-3">
     <div className="shopping_cart_summary">Shopping Cart Summary</div>
     <div className="cartSummaryRow">
       <p>
@@ -127,8 +127,8 @@ class CheckoutList extends Component {
         
   
     return(
-    <div className="row" key={cartItemId}>
-            <div className="col-lg-3 col-xs-12 col-sm-3 col-md-3">
+    <div className="row" key={cartItemId} style={{"animationDelay":(500)+"ms"}}>
+            <div className="col-lg-3 col-xs-12 col-sm-12 col-md-3">
               <img className="itemThumbnail" src={item.image} />
               <Link className="checkoutItemLink" to={`/item/${item.id}`}>
                 <span className="checkoutItemTitle">{item.title}</span>
@@ -171,12 +171,12 @@ class CheckoutList extends Component {
 
     const cartItemAppearTransitionOptions = {
         transitionName:"cartItem",
-        transitionAppear:true,
+        transitionAppear:false,
         transitionEnter:false,
         transitionLeave:true,
         transitionAppearTimeout:2500,
-        transitionLeaveTimeout:2500,
-        transitionEnterTimeout:0,
+        transitionLeaveTimeout:500,
+        transitionEnterTimeout:2500,
     };
 
     

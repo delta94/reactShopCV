@@ -432,45 +432,23 @@ table td{
 /* starting state of animation */
 .cartItem-appear{
     opacity: 0.01;
-    transform:   translate(-250px,0)
+    transform: rotateX(0deg);
 }
 
 /* end state of animation */
 .cartItem-appear-active {
     opacity: 1;
-    transform:   translate(0px,0);
-    transition: 1.2s ease-in all
+    transform: rotateX(360deg);
+    transition: 2s ease-in all
 }
 
 .cartItem-leave{
     opacity: 1;
+    transform:   translate(0px,0);
 }
 
 .cartItem-leave-active{
     opacity: 0;
-    transition: 1.2s ease-in all
-    
-}
-
-.teste-appear{
-    opacity: 0.01;
-    transform:   translate(-250px,0)
-}
-
-/* end state of animation */
-.teste-appear-active {
-    opacity: 1;
-    transform:   translate(0px,0);
-    transition: 2s ease-in all
-}
-
-.teste-leave{
-    
-    transform:   translate(0px,0)
-}
-
-.teste-leave-active{
-    
-    transform:   translate(250px,0);
-    transition: 10s ease-in all
+    transform:   translate(-250px,0px);
+    transition: 1s ease-in all
 }
