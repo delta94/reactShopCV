@@ -9,7 +9,6 @@ export default function (state = tags, action) {
       const updatedTypes = {...state.types , [key]:{description:key,selected:!state.types[key].selected}}
       return {types:updatedTypes, tagChange:true}
     case IS_PAGE_CHANGE:
-      console.log('returning page change in tag reducer' , {...state, tagChange:false});
       return {...state, tagChange:false}
     default:
       return state;

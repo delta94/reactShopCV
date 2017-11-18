@@ -15,7 +15,6 @@ export function addToCart(id){
 }
 
 export function selectTag(tag){
-    console.log('tag is' , tag);
     return{
         type:CATEGORY_FILTER_APPLIED,
         payload:tag

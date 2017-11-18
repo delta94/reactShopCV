@@ -26,12 +26,18 @@ class Menu extends Component{
     }
 
     getPaginationOptions(){
+        // console.log('selected item count' , this.selectedItemCount);
+        // console.log('items per page' , itemsPerPage);
+        console.log('numbers of pages is',Math.ceil(this.selectedItemCount/itemsPerPage));
+    
         return {
             activePage:this.props.isTagChange ? 1 : this.state.activePage,
             itemsCountPerPage:itemsPerPage,
             totalItemsCount:this.selectedItemCount,
-            pageRangeDisplayed:Math.round(this.selectedItemCount/itemsPerPage)       
+            pageRangeDisplayed:Math.ceil(this.selectedItemCount/itemsPerPage) 
         }
+
+        
     }
 
     orderItems(items){
@@ -57,10 +63,9 @@ class Menu extends Component{
     }
 
     renderItemList(pageNumber){
-        console.log('rendering item list');
         const itemsArr = _.valuesIn(this.props.items);
+        console.log('selected tags' , this.props.selectedTags);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
-        console.log('active tags is' , activeTags);
         const activeTagsCount = Object.values(activeTags).reduce((accumulator,current) => {
             if(current){
                 return accumulator+1
@@ -68,6 +73,10 @@ class Menu extends Component{
                 return accumulator
             }
         },0);
+
+        console.log('active tags are' , activeTags);
+        console.log('active tag count is' , activeTagsCount);
+        console.log('total number of tags is' , numberOfTags);
 
         const orderedItemsArr = this.orderItems(itemsArr);
 
@@ -84,15 +93,15 @@ class Menu extends Component{
             }
         },[]);
 
+        console.log('selected items are', selectedItemsArr);
+
         this.selectedItemCount = selectedItemsArr.length;
             
         if(pageNumber === 1 || this.props.isTagChange){
-            console.log('rendering a tag change or first page');
                 return selectedItemsArr.slice(0,itemsPerPage);
             } 
 
             const pagedItems = selectedItemsArr.slice(itemsPerPage*pageNumber-itemsPerPage,itemsPerPage*pageNumber);
-            console.log('rendering a page switch');
             return pagedItems;
         };
 
@@ -111,10 +120,6 @@ class Menu extends Component{
             transitionLeaveTimeout:2500,
             transitionEnterTimeout:2500,
         };
-
-
-        console.log('item count' , this.selectedItemCount);
-
     
     return (
         <div className="container items">
