@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 import Item from '../components/item.js'
-import {setSelectedOrdering ,setFirstTimeVisit, isPageChange} from '../actions/actions_index.js'
+import {setSelectedOrdering ,setFirstTimeVisit, isPageChange, memorizeLastPage} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import {numberOfTags, orderingType, itemsPerPage, totalItems} from '../data/data.js'
 import Pagination from 'react-js-pagination'
@@ -17,27 +17,37 @@ class Menu extends Component{
         super(props)
         this.state={activePage:1}
         this.selectedItemCount = 0
-        this.getPaginationOptions = this.getPaginationOptions.bind(this);
+    }
+
+    componentWillMount(){
+        this.setState({activePage:this.props.lastVisitedPage})
     }
 
     handlePageChange(pageNumber){
+        console.log('in handle page change');
         this.setState({activePage: pageNumber});
         this.props.isPageChange();
+        this.props.memorizeLastPage(pageNumber);
     }
 
-    getPaginationOptions(){
-        // console.log('selected item count' , this.selectedItemCount);
-        // console.log('items per page' , itemsPerPage);
-        console.log('numbers of pages is',Math.ceil(this.selectedItemCount/itemsPerPage));
-    
-        return {
+    renderPagination(){
+        console.log(this.state.activePage);
+        
+        const paginationOptions = {
             activePage:this.props.isTagChange ? 1 : this.state.activePage,
             itemsCountPerPage:itemsPerPage,
             totalItemsCount:this.selectedItemCount,
-            pageRangeDisplayed:Math.ceil(this.selectedItemCount/itemsPerPage) 
+            pageRangeDisplayed: Math.ceil(this.selectedItemCount/itemsPerPage)
         }
 
-        
+        if(paginationOptions.totalItemsCount <= paginationOptions.itemsCountPerPage){
+            return;
+        }else{
+            return (
+                <Pagination {...paginationOptions} onChange={(pageNumber)=>this.handlePageChange(pageNumber)}>
+                </Pagination>
+            )
+        }        
     }
 
     orderItems(items){
@@ -64,7 +74,6 @@ class Menu extends Component{
 
     renderItemList(pageNumber){
         const itemsArr = _.valuesIn(this.props.items);
-        console.log('selected tags' , this.props.selectedTags);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
         const activeTagsCount = Object.values(activeTags).reduce((accumulator,current) => {
             if(current){
@@ -73,10 +82,6 @@ class Menu extends Component{
                 return accumulator
             }
         },0);
-
-        console.log('active tags are' , activeTags);
-        console.log('active tag count is' , activeTagsCount);
-        console.log('total number of tags is' , numberOfTags);
 
         const orderedItemsArr = this.orderItems(itemsArr);
 
@@ -92,8 +97,6 @@ class Menu extends Component{
                 return result;
             }
         },[]);
-
-        console.log('selected items are', selectedItemsArr);
 
         this.selectedItemCount = selectedItemsArr.length;
             
@@ -127,21 +130,21 @@ class Menu extends Component{
                         <ReactCSSTransitionGroup {...menuTransitionOptions}>
                          {this.renderItemList(this.state.activePage)}
                         </ReactCSSTransitionGroup>
+                        {this.renderPagination()}
                     </div>
-                    <Pagination {...this.getPaginationOptions()} onChange={(pageNumber)=>this.handlePageChange(pageNumber)}>
-                    </Pagination>
+                    
             </div>
             
             )
     }
 }
 
-function mapStateToProps({selectedTags,items,selectedOrdering,firstTimeVisit}){
-    return {selectedTags:selectedTags.types,isTagChange:selectedTags.tagChange,items,selectedOrdering,firstTimeVisit}
+function mapStateToProps({selectedTags,items,selectedOrdering,firstTimeVisit,lastVisitedPage}){
+    return {selectedTags:selectedTags.types,isTagChange:selectedTags.tagChange,items,selectedOrdering,firstTimeVisit,lastVisitedPage}
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({setSelectedOrdering:setSelectedOrdering,setFirstTimeVisit:setFirstTimeVisit,isPageChange:isPageChange},dispatch);
+    return bindActionCreators({setSelectedOrdering:setSelectedOrdering,setFirstTimeVisit,isPageChange,memorizeLastPage},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Menu);

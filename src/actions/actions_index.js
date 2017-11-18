@@ -6,6 +6,7 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
 export const RESET_STOCK = "RESET_STOCK"
 export const FIRST_TIME_VISIT = "FIRST_TIME_VISIT";
 export const IS_PAGE_CHANGE = "IS_PAGE_CHANGE"
+export const MEMORIZE_LAST_PAGE = "LAST_PAGE";
 
 export function addToCart(id){
     return {
@@ -57,8 +58,17 @@ export function setFirstTimeVisit(firstTime){
 }
 
 export function isPageChange(){
+    console.log('in page change');
     return{
         type:IS_PAGE_CHANGE,
         payload:true
+    }
+}
+
+export function memorizeLastPage(pageNumber){
+    console.log('last page history');
+    return{
+        type:MEMORIZE_LAST_PAGE,
+        payload:pageNumber
     }
 }
