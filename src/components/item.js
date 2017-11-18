@@ -24,11 +24,10 @@ class Item extends Component{
     
     render(){
         return(
-            <li className="list-inline-item">
-                <div className="item">
+            <div className="col-md-4">
                     <div className="itemImage">
                     <Link to={`/item/${this.props.item.id}`}>
-                        <img className="img-fluid img-thumbnail" src={this.props.item.image} alt={this.props.item.title} />
+                        <img className="img-thumbnail" src={this.props.item.image} alt={this.props.item.title} />
                     </Link>
                     </div>
                     <div className="itemDetailsWrapper">
@@ -37,8 +36,7 @@ class Item extends Component{
                         <div className="itemRating pull-left"><span>{this.renderRating(5)}</span></div>
                         <div className="itemPrice pull-right">{this.props.item.price}€</div>
                     </div>
-                </div>
-            </li>
+            </div>
         )
     }
 }

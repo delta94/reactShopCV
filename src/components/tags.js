@@ -12,7 +12,6 @@ class Tags extends Component{
     constructor(props){
         super(props);
         this.state = {selectedOrdering:null};
-
         this.onSelectChange = this.onSelectChange.bind(this);
     }
 
@@ -23,28 +22,6 @@ class Tags extends Component{
     onSelectChange(event){
         this.setState({selectedOrdering:event.target.value})
         this.props.setSelectedOrdering(event.target.value)
-    }
-
-    orderItems(items){
-        const ordering = this.props.selectedOrdering;
-        switch (ordering){
-            case orderingType.category:
-            return items.sort((a,b) => {
-                if(a.tag < b.tag){
-                    return -1
-                }
-                if(a.tag > b.tag){
-                    return 1
-                }
-                return 0
-            })
-            case orderingType.priceAsc:
-            return items.sort((a,b) => {if(a.price>b.price) return 1})
-            case ordering.priceDesc:
-            return items.sort((a,b) => {if(a.price>b.price) return -1})
-            default:
-            return items
-        }
     }
 
     onTagChange(event){
@@ -89,7 +66,7 @@ class Tags extends Component{
 
 
 function mapStateToProps({selectedTags,selectedOrdering}){
-    return {selectedTags,selectedOrdering};
+    return {selectedTags:selectedTags.types,selectedOrdering};
 }
 
 function mapDispatchToProps(dispatch){

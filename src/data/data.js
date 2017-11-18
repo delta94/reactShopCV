@@ -1,11 +1,14 @@
 import _ from 'lodash';
 
 export const tags = {
-  Skills: { description: 'Skills', selected: false },
-  Education: { description: 'Education', selected: false },
-  Fun: { description: 'Fun', selected: false },
-  Projects: { description: 'Projects', selected: false },
-  Work: { description: 'Work', selected: false },
+  types: {
+    Skills: { description: 'Skills', selected: false },
+    Education: { description: 'Education', selected: false },
+    Fun: { description: 'Fun', selected: false },
+    Projects: { description: 'Projects', selected: false },
+    Work: { description: 'Work', selected: false },
+  },
+  tagChange: false,
 };
 
 
@@ -38,190 +41,208 @@ export const items = {
     id: 3,
     stock: 4,
   },
-  6: {
+  4: {
     title: 'Table Tennis',
     description: 'I’ve playing it since I was 8 years old and I’ve never stopped. Absolutely love it!',
     image: 'https://www.directtrophies.com.au/image/cache/data/category%20thumbnails/ping-pong-200x200.png',
     video: '<iframe width="560" height="315" src="https://www.youtube.com/embed/1Rr51iZZmS8?rel=0?ecver=1" frameBorder="0" gesture="media" allowFullScreen></iframe>',
     price: 30.54,
     tag: 'Fun',
-    id: 6,
+    id: 4,
     stock: 10,
   },
-  7: {
+  5: {
     title: 'BPI',
     description: 'I’ve worked at BPI Investment Banking in Lisbon as a part of the asset selection team. My goal was to create spreadsheet models to help portfolio managers make educated investment decisions. Deepened my Excel knowledge and had to suit up everyday.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 28.43,
     tag: 'Work',
-    id: 7,
+    id: 5,
     stock: 2,
   },
-  8: {
+  6: {
     title: 'Santander',
     description: 'My first real job! I was an assistant in the Structured Retails Products team at Santander Global Banking in Lisbon. I’ve helped creating financials products like deposits that were then sold to Santander’s customers. Got to learn about Excel, but also learnt a lot about dealing with customers!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 12.99,
     tag: 'Work',
-    id: 8,
+    id: 6,
     stock: 9,
   },
-  9: {
+  7: {
     title: 'Uniplaces',
     description: 'After banking I decided I wanted to try something different. Therefore I joined Uniplaces as a Marketing Analyst. This is really cool for me because I got to learn about Google Adwords, Google Analytics and got to work on a daily basis with SQL and XML feeds.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 46.22,
     tag: 'Work',
-    id: 9,
+    id: 7,
     stock: 7,
   },
-  10: {
+  8: {
     title: 'CGI',
     description: 'CGI was my first job in the development industry. I got to work with C#, using the .NET framework and other Microsoft technologies like SQL Server. Also worked with other things like Bootstrap and JQuery. I’ve implemented the hour report system and the feedback management system CGI Portugal is currently using.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 87.12,
     tag: 'Work',
-    id: 10,
+    id: 8,
     stock: 2,
   },
-  11: {
+  9: {
     title: 'Bootstrap',
     description: 'I’ve used it in almost all my personal and professional projects. Nowadays I’ve been focusing on trying to make my projects as responsive as possible! For a little flavour of what I’m saying try resizing the shopping cart page!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 34.23,
     tag: 'Skills',
-    id: 11,
+    id: 9,
     stock: 8,
   },
-  12: {
+  10: {
     title: 'Node.Js',
     description: 'I got really into Node.js due because I wanted to learn more about asynchronous programming and I’ve sticked to its the front door to the vibrant javascript ecosystem and you can easily build amazing stuff with it! Check one of my projects called 65. It uses Node.js from top to bottom!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 67.23,
     tag: 'Skills',
-    id: 12,
+    id: 10,
     stock: 3,
   },
-  13: {
+  11: {
     title: 'React',
     description: 'JQuery is cool but after some time you get tired of seeing $(\'Stuff\') all over the place and doing stuff like “onClick hide that” and so on... So I decided to see what React was all about. And it’s pretty cool! I did a couple of online courses to learn about React and Redux, but also other things like managing forms in React and displaying modals. Heads up: this project is entirely made with React+Redux!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 79.34,
     tag: 'Skills',
-    id: 13,
+    id: 11,
     stock: 7,
   },
-  14: {
+  12: {
     title: 'Java',
     description: 'Java was the selected language of choice when I started learning how to code. I did all things imaginable with it. Primitive types, iterators, inheritance, interfaces, buffers, streams, threading I’ve actually built several games and a chat server with it. Take Spotify playlist sorter! It’s a project 100% made with Java.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 12.99,
     tag: 'Skills',
-    id: 14,
+    id: 12,
     stock: 6,
   },
-  15: {
+  13: {
     title: 'C#',
     description: 'C# was the programming language I used at CGI. It’s not different from Java since both are objected oriented but has some cool features to it like delegates. Enjoyed it!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 67.15,
     tag: 'Skills',
-    id: 15,
+    id: 13,
     stock: 9,
   },
-  16: {
+  14: {
     title: 'Mongo DB',
     description: 'I got curious about MongoDB because I heard everyone talking about “NoSQL”. So I investigated it. And it turns out I liked it! It’s cool dealing with JSON and not have to use a mapper like Hibernate. I’ve used it in my personal project  called 65. Check it out!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 88.65,
     tag: 'Skills',
-    id: 16,
+    id: 14,
     stock: 3,
   },
-  17: {
+  15: {
     title: 'SQL',
     description: 'INSERT INTO DB_Querying_Languages VALUES (‘SQL’). The good old SQL. There’s no escaping it. But it’s not that bad. I’ve used it Uniplaces, CGI and Academia de Código.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 36.25,
     tag: 'Skills',
-    id: 17,
+    id: 15,
     stock: 6,
   },
-  18: {
+  16: {
     title: 'Spring',
     description: 'Spring as one of the technologies I’ve learned at Academia De Código alongside with Maven as well. Almost all of the more complex projects we did there were reliant on Spring MVC.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 23.12,
     tag: 'Skills',
-    id: 18,
+    id: 16,
     stock: 8,
   },
-  19: {
+  17: {
     title: 'CSS',
     description: '“I don’t care about making things pretty”. Saddest things I hear developers say. Yes I know CSS and its flavours are a pain in the ass but come on! If it is good, it was to look good as well! I’m no expert in CSS but I try to keep things as inviting to the eye as possible. I did the styling of this application from scratch for example.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 45.34,
     tag: 'Skills',
-    id: 19,
+    id: 17,
     stock: 2,
   },
-  20: {
+  18: {
     title: 'Hibernate',
     description: 'One of ORM’s I’ve used with Java at Academia de Código. At CGI I’ve used the Entity Framework to do object mappings. It’s one of those things you can leave without in the Java environment.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 70.99,
     tag: 'Skills',
-    id: 20,
+    id: 18,
     stock: 7,
   },
-  21: {
+  19: {
     title: 'Git',
     description: 'Hold on to me and never let me go! I’ve used other stuff like TFS but GIT is better. I use it everyday in my personal projects and I’ve used at Academia de Código as well.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 69.99,
     tag: 'Skills',
-    id: 21,
+    id: 19,
     stock: 4,
   },
-  22: {
+  20: {
     title: 'Html',
     description: 'Mama: “Tiago eat your veggies, now!”... Tiago: “But momma I don’t want too!”. It’s a bit how I feel about HTML. But oh well we can’t leave without it. Thank God for stuff like Pug and Emmet!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 1.99,
     tag: 'Skills',
-    id: 22,
+    id: 20,
     stock: 10,
   },
-  23: {
+  21: {
     title: 'Excel',
     description: 'If you ever did any serious work in Finance you’d need to know Excel. Although Excel is not a programming language, there’s a lot of logic going on there. VLOOKUP is like a foreign key relation, FIND(substr,string) is like String.IndexOf(), IF() is like, well, an IF statement… It’s like a brother from another mother of programming languages.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 59.23,
     tag: 'Skills',
-    id: 23,
+    id: 21,
     stock: 6,
   },
-  24: {
+  22: {
     title: 'Webpack',
     description: 'At first I used to look at it in complete despair. But then it started to make some sense. Although the syntax is borderline horrible, it’s a very cool tool for bundling and testing. I’ve been trying to use it every new project I’m doing and I’ve used it in 65 and ReactiumVittae.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 77.15,
     tag: 'Skills',
-    id: 24,
+    id: 22,
     stock: 2,
   },
-  25: {
+  23: {
     title: 'ES6',
     description: 'Array.Map(), Object.keys(), {...state}, class Tiago extends Awesome...I got it covered!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 35.11,
     tag: 'Skills',
-    id: 25,
+    id: 23,
     stock: 9,
   },
-  26: {
+  24: {
     title: 'ReactiumVittae',
     description: 'I originally got the idea that a online shop could be a good starting point for a CV when I was shopping online and looking for a job at the same time. When I got my hands on React and wanted to make a project to consolidate my knowledge I chose to do it. And you’re currently looking at it! The technologies used were React and Redux.',
+    image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
+    price: 99.99,
+    tag: 'Projects',
+    id: 24,
+    stock: 0,
+  },
+  25: {
+    title: '65',
+    description: 'So my parents have a house to rent. Every year come summer time, my Father creates a new Excel spreadsheet and registers everything there. There’s no easy way to access records of customers, earnings or reservations from one year to another. “This has to end”, I said. And so 65 has born. 65 is a project about managing holiday rentals. The technologies used were Node.Js and Mongo Db and some notable frameworks like Passport.Js, Axios.js, Mongoose, Webpack, Express.Js, Pug and Promisify.',
+    image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
+    price: 99.99,
+    tag: 'Projects',
+    id: 25,
+    stock: 0,
+  },
+  26: {
+    title: 'Spotify Playlist Sorter',
+    description: 'I’m a huge music fan. And I use Spotify. One thing that bothers me about Spotify is that it doesn’t give me a way of separating my musics by genre automatically. So I did that myself! What this Java application does (at the time Java as all I knew, if I were to do it again I wouldn’t use Java, so bear with me) is going through all recent songs added to your library, determine the genre of a song, and place it in its correct playlist. On top of that I added a feature of randomly selecting 15 songs from each genre playlist and save the to an offline playlist of that genre, so that I can take on my music anywhere without the need of having internet access.',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 99.99,
     tag: 'Projects',
@@ -229,30 +250,12 @@ export const items = {
     stock: 0,
   },
   27: {
-    title: '65',
-    description: 'So my parents have a house to rent. Every year come summer time, my Father creates a new Excel spreadsheet and registers everything there. There’s no easy way to access records of customers, earnings or reservations from one year to another. “This has to end”, I said. And so 65 has born. 65 is a project about managing holiday rentals. The technologies used were Node.Js and Mongo Db and some notable frameworks like Passport.Js, Axios.js, Mongoose, Webpack, Express.Js, Pug and Promisify.',
-    image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
-    price: 99.99,
-    tag: 'Projects',
-    id: 27,
-    stock: 0,
-  },
-  28: {
-    title: 'Spotify Playlist Sorter',
-    description: 'I’m a huge music fan. And I use Spotify. One thing that bothers me about Spotify is that it doesn’t give me a way of separating my musics by genre automatically. So I did that myself! What this Java application does (at the time Java as all I knew, if I were to do it again I wouldn’t use Java, so bear with me) is going through all recent songs added to your library, determine the genre of a song, and place it in its correct playlist. On top of that I added a feature of randomly selecting 15 songs from each genre playlist and save the to an offline playlist of that genre, so that I can take on my music anywhere without the need of having internet access.',
-    image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
-    price: 99.99,
-    tag: 'Projects',
-    id: 28,
-    stock: 0,
-  },
-  29: {
     title: 'Dogs',
     description: '“Who’s a good girl? Who’s a good girl? Mel is a good girl!”',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 59.99,
     tag: 'Fun',
-    id: 29,
+    id: 27,
     stock: 0,
   },
 
@@ -268,3 +271,7 @@ export const numberOfTags = Object.keys(tags).length;
 export const orderingType = { category: 'Category', priceAsc: 'Price Asc.', priceDesc: 'Price Desc.' };
 
 export const startingOrdering = orderingType.category;
+
+export const itemsPerPage = 9;
+
+export const totalItems = Object.keys(items).length;

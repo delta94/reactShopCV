@@ -4,12 +4,11 @@ import _ from 'lodash'
 
 export default function (state = tags, action) {
   const key = action.payload;
-
   switch (action.type) {
     case CATEGORY_FILTER_APPLIED:
-    //copy state but change the boolean value of the changed tag
-    return {...state,[key]:{description:key,selected:!state[key].selected}};
-
+      const updatedTypes = {...state.types , [key]:{description:key,selected:!state.types[key].selected}}
+      console.log('reducer returning' ,{types:updatedTypes, tagChange:true} );
+      return {types:updatedTypes, tagChange:true}
     default:
       return state;
   }

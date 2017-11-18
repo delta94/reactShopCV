@@ -153,11 +153,16 @@ select {
     margin-top:2em;
 }
 
+.list-inline{
+    width: 200px;
+}
+
 .item{
     margin: 1em;
     padding: 2em;
     border: 1px solid lightgrey;
 }
+
 
 .itemTag{
     font-style: italic;

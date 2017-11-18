@@ -6,8 +6,6 @@ export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
 export const RESET_STOCK = "RESET_STOCK"
 export const FIRST_TIME_VISIT = "FIRST_TIME_VISIT";
 
-
-
 export function addToCart(id){
     return {
         type:ADD_TO_CART,
@@ -16,6 +14,7 @@ export function addToCart(id){
 }
 
 export function selectTag(tag){
+    console.log('tag is' , tag);
     return{
         type:CATEGORY_FILTER_APPLIED,
         payload:tag
