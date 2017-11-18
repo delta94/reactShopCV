@@ -1,4 +1,4 @@
-import {CATEGORY_FILTER_APPLIED} from '../actions/actions_index.js';
+import {CATEGORY_FILTER_APPLIED,IS_PAGE_CHANGE} from '../actions/actions_index.js';
 import {tags} from '../data/data.js'
 import _ from 'lodash'
 
@@ -7,8 +7,10 @@ export default function (state = tags, action) {
   switch (action.type) {
     case CATEGORY_FILTER_APPLIED:
       const updatedTypes = {...state.types , [key]:{description:key,selected:!state.types[key].selected}}
-      console.log('reducer returning' ,{types:updatedTypes, tagChange:true} );
       return {types:updatedTypes, tagChange:true}
+    case IS_PAGE_CHANGE:
+      console.log('returning page change in tag reducer' , {...state, tagChange:false});
+      return {...state, tagChange:false}
     default:
       return state;
   }

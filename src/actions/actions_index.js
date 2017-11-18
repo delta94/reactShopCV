@@ -5,6 +5,7 @@ export const SET_ORDERING = "SET_ORDERING";
 export const REMOVE_FROM_CART = "REMOVE_FROM_CART"
 export const RESET_STOCK = "RESET_STOCK"
 export const FIRST_TIME_VISIT = "FIRST_TIME_VISIT";
+export const IS_PAGE_CHANGE = "IS_PAGE_CHANGE"
 
 export function addToCart(id){
     return {
@@ -53,5 +54,12 @@ export function setFirstTimeVisit(firstTime){
     return{
         type:FIRST_TIME_VISIT,
         payload:firstTime
+    }
+}
+
+export function isPageChange(){
+    return{
+        type:IS_PAGE_CHANGE,
+        payload:true
     }
 }

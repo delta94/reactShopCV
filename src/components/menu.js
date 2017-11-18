@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import _ from 'lodash';
 import Item from '../components/item.js'
-import {setSelectedOrdering ,setFirstTimeVisit} from '../actions/actions_index.js'
+import {setSelectedOrdering ,setFirstTimeVisit, isPageChange} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import {numberOfTags, orderingType, itemsPerPage, totalItems} from '../data/data.js'
 import Pagination from 'react-js-pagination'
@@ -17,10 +17,21 @@ class Menu extends Component{
         super(props)
         this.state={activePage:1}
         this.selectedItemCount = 0
+        this.getPaginationOptions = this.getPaginationOptions.bind(this);
     }
 
     handlePageChange(pageNumber){
         this.setState({activePage: pageNumber});
+        this.props.isPageChange();
+    }
+
+    getPaginationOptions(){
+        return {
+            activePage:this.props.isTagChange ? 1 : this.state.activePage,
+            itemsCountPerPage:itemsPerPage,
+            totalItemsCount:this.selectedItemCount,
+            pageRangeDisplayed:Math.round(this.selectedItemCount/itemsPerPage)       
+        }
     }
 
     orderItems(items){
@@ -46,6 +57,7 @@ class Menu extends Component{
     }
 
     renderItemList(pageNumber){
+        console.log('rendering item list');
         const itemsArr = _.valuesIn(this.props.items);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
         console.log('active tags is' , activeTags);
@@ -73,11 +85,14 @@ class Menu extends Component{
         },[]);
 
         this.selectedItemCount = selectedItemsArr.length;
-            if(pageNumber === 1){
+            
+        if(pageNumber === 1 || this.props.isTagChange){
+            console.log('rendering a tag change or first page');
                 return selectedItemsArr.slice(0,itemsPerPage);
             } 
 
             const pagedItems = selectedItemsArr.slice(itemsPerPage*pageNumber-itemsPerPage,itemsPerPage*pageNumber);
+            console.log('rendering a page switch');
             return pagedItems;
         };
 
@@ -97,12 +112,9 @@ class Menu extends Component{
             transitionEnterTimeout:2500,
         };
 
-        const paginationOptions = {
-            activePage:this.state.activePage,
-            itemsCountPerPage:itemsPerPage,
-            totalItemsCount:this.selectedItemCount,
-            pageRangeDisplayed:Math.round(this.selectedItemCount/itemsPerPage)       
-        }
+
+        console.log('item count' , this.selectedItemCount);
+
     
     return (
         <div className="container items">
@@ -111,7 +123,7 @@ class Menu extends Component{
                          {this.renderItemList(this.state.activePage)}
                         </ReactCSSTransitionGroup>
                     </div>
-                    <Pagination {...paginationOptions} onChange={(pageNumber)=>this.handlePageChange(pageNumber)}>
+                    <Pagination {...this.getPaginationOptions()} onChange={(pageNumber)=>this.handlePageChange(pageNumber)}>
                     </Pagination>
             </div>
             
@@ -120,11 +132,11 @@ class Menu extends Component{
 }
 
 function mapStateToProps({selectedTags,items,selectedOrdering,firstTimeVisit}){
-    return {selectedTags:selectedTags.types,items,selectedOrdering,firstTimeVisit}
+    return {selectedTags:selectedTags.types,isTagChange:selectedTags.tagChange,items,selectedOrdering,firstTimeVisit}
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({setSelectedOrdering:setSelectedOrdering,setFirstTimeVisit:setFirstTimeVisit},dispatch);
+    return bindActionCreators({setSelectedOrdering:setSelectedOrdering,setFirstTimeVisit:setFirstTimeVisit,isPageChange:isPageChange},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Menu);
