@@ -58,7 +58,6 @@ export function setFirstTimeVisit(firstTime){
 }
 
 export function isPageChange(){
-    console.log('in page change');
     return{
         type:IS_PAGE_CHANGE,
         payload:true
@@ -66,7 +65,6 @@ export function isPageChange(){
 }
 
 export function memorizeLastPage(pageNumber){
-    console.log('last page history');
     return{
         type:MEMORIZE_LAST_PAGE,
         payload:pageNumber

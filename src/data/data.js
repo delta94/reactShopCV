@@ -1,5 +1,6 @@
 import _ from 'lodash';
 
+
 export const tags = {
   types: {
     Skills: { description: 'Skills', selected: false },
@@ -98,7 +99,7 @@ export const items = {
   },
   10: {
     title: 'Node.Js',
-    description: 'I got really into Node.js due because I wanted to learn more about asynchronous programming and I’ve sticked to its the front door to the vibrant javascript ecosystem and you can easily build amazing stuff with it! Check one of my projects called 65. It uses Node.js from top to bottom!',
+    description: 'I got really into Node.js due because I wanted to learn more about asynchronous programming and I’ve sticked to its the front door to the vibrant javascript ecosystem and you can easily build amazing stuff with it! Check one of my projects called <Link to={`/item/25`}>65</Link>. It uses Node.js from top to bottom!',
     image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
     price: 67.23,
     tag: 'Skills',

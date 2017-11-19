@@ -52,9 +52,18 @@ class Menu extends Component{
 
     orderItems(items){
         const ordering = this.props.selectedOrdering;
+        // console.log(typeof ordering);
+        // console.log(typeof orderingType.category);
+        // console.log(ordering);
+        // console.log(orderingType.category);
+        // console.log(ordering === orderingType.category);
+        
+        
+        
+        let orderedItems = null;
         switch (ordering){
-            case orderingType.category:
-            return items.sort((a,b) => {
+            case (orderingType.category):
+            orderedItems = items.sort((a,b) => {
                 if(a.tag < b.tag){
                     return -1
                 }
@@ -63,13 +72,21 @@ class Menu extends Component{
                 }
                 return 0
             })
-            case orderingType.priceAsc:
-            return items.sort((a,b) => {if(a.price>b.price) return 1})
-            case ordering.priceDesc:
-            return items.sort((a,b) => {if(a.price>b.price) return -1})
+            break;
+            case (orderingType.priceAsc):
+            console.log('in price asc');
+                orderedItems =  items.sort((a,b) => a.price-b.price)
+                break;
+            case (orderingType.priceDesc):
+                console.log('in price desc');
+                orderedItems =  items.sort((a,b) => b.price-a.price)
+                break;
             default:
+            console.log('returning default');
             return items
         }
+        console.log(orderedItems);
+        return orderedItems
     }
 
     renderItemList(pageNumber){

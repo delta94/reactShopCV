@@ -54,14 +54,14 @@ class CheckoutList extends Component {
     <div className="cartSummaryRow">
       <p>
         Items<span className="shopping_cart_price pull-right">
-          {Math.round(cartValue * 100 / 100)}€
+          {Math.round(cartValue * 100 / 100).toFixed(2)}€
         </span>
       </p>
     </div>
     <div className="cartSummaryRow">
       <p>
         VAT<span className="shopping_cart_price pull-right">
-          {Math.round(cartValue * 0.23 * 100) / 100}€
+          {(Math.round(cartValue * 0.23 * 100) / 100).toFixed(2)}€
         </span>
       </p>
     </div>
@@ -133,9 +133,9 @@ class CheckoutList extends Component {
                 <img className="itemThumbnail" src={item.image} />
               </Link>
             </div>
-            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{item.price}€</p></div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{item.price.toFixed(2)}€</p></div>
             <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{itemQuantity}</p></div>
-            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{itemTotal}€</p></div>
+            <div className="col-lg-2 col-xs-2 col-sm-2 col-md-2 shopping_cart_item_info"><p>{itemTotal.toFixed(2)}€</p></div>
             <div className="col-lg-3 col-xs-3 col-sm-3 col-md-3 shopping_cart_item_info">
             <button className="btn remove-btn" onClick={() => {
                 this.onRemoveFromCartClick(item.id);

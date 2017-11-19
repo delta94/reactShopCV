@@ -4,7 +4,6 @@ import {bindActionCreators} from 'redux'
 import {selectTag} from '../actions/actions_index.js'
 import {setSelectedOrdering} from '../actions/actions_index.js'
 import {numberOfTags, orderingType} from '../data/data.js'
-
 import _ from 'lodash'
 
 class Tags extends Component{
