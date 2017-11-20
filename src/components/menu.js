@@ -82,6 +82,8 @@ class Menu extends Component{
             case (orderingType.priceDesc):
                 orderedItems =  items.sort((a,b) => b.price-a.price)
                 break;
+            case(orderingType.rating):
+                orderedItems = items.sort((a,b) => b.rating - a.rating)
             default:
             return items
         }
@@ -114,9 +116,9 @@ class Menu extends Component{
         const selectedItemsArr = orderedItemsArr.reduce((result, item) => {
 
             //1-Nothing is selected
-            //2- a skill is selected but no filters
-            // 3
-            // 4 - at least on skill and one filter is selected
+            //2- a skill is selected but no ratings
+            //3 - a rating is selected but no skills
+            //4 - at least on skill and one rating is selected
             
             if((activeTagsCount === numberOfTags || activeTagsCount === 0) && activeRatingsCount === 0 ){
                 result.push(<Item item={item} key={item.id} renderRating={this.renderRating}/>)

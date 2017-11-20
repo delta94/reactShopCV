@@ -304,7 +304,7 @@ export const cart = _.mapValues(items, () => 0);
 
 export const numberOfTags = Object.keys(tags.types).length;
 
-export const orderingType = { category: 'Category', priceAsc: 'Price Asc.', priceDesc: 'Price Desc.' };
+export const orderingType = { category: 'Category', priceAsc: 'Price Asc.', priceDesc: 'Price Desc.', rating: 'Rating' };
 
 export const startingOrdering = orderingType.category;
 

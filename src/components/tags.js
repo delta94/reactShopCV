@@ -85,6 +85,7 @@ class Tags extends Component{
                 <option value={orderingType.category}>{orderingType.category}</option>
                 <option value={orderingType.priceAsc}>{orderingType.priceAsc}</option>
                 <option value={orderingType.priceDesc}>{orderingType.priceDesc}</option>
+                <option value={orderingType.rating}>{orderingType.rating}</option>                
             </select>
         </div>
         </aside>
