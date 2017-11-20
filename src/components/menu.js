@@ -4,7 +4,7 @@ import _ from 'lodash';
 import Item from '../components/item.js'
 import {setSelectedOrdering ,setFirstTimeVisit, isPageChange, memorizeLastPage, selectRating} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
-import {numberOfTags, orderingType, itemsPerPage, totalItems} from '../data/data.js'
+import {numberOfTags, orderingType, itemsPerPage,itemsPerRow, totalItems} from '../data/data.js'
 import Pagination from 'react-js-pagination'
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
@@ -20,13 +20,18 @@ class Menu extends Component{
     }
 
     componentWillMount(){
-        this.setState({activePage:this.props.lastVisitedPage})
+        console.log('changing active page state to ' , this.props.lastVisitedPage);
+        // this.setState({activePage:this.props.lastVisitedPage})
+        this.setState({activePage:this.props.lastVisitedPage})   
     }
 
+    // componentWillReceiveProps(next){
+    //     this.setState({activePage:1})   
+    // }
     handlePageChange(pageNumber){
-        this.setState({activePage: pageNumber});
         this.props.isPageChange();
         this.props.memorizeLastPage(pageNumber);
+        this.setState({activePage: pageNumber});
     }
 
     renderRating(nStars){
@@ -43,6 +48,7 @@ class Menu extends Component{
     }
 
     renderPagination(){
+        console.log('active page is' , this.state.activePage);
         const paginationOptions = {
             activePage:this.props.isTagChange ? 1 : this.state.activePage,
             itemsCountPerPage:itemsPerPage,
@@ -91,6 +97,7 @@ class Menu extends Component{
     }
 
     renderItemList(pageNumber){
+        console.log('rendering page number ' , pageNumber);
         const itemsArr = _.valuesIn(this.props.items);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
         const activeTagsCount = Object.values(activeTags).reduce((accumulator,current) => {
@@ -142,39 +149,63 @@ class Menu extends Component{
         },[]);
 
         this.selectedItemCount = selectedItemsArr.length;
+
+        let pagedItems = null;
             
         if(pageNumber === 1 || this.props.isTagChange){
-                return selectedItemsArr.slice(0,itemsPerPage);
+                pagedItems = selectedItemsArr.slice(0,itemsPerPage);
             } 
 
-            const pagedItems = selectedItemsArr.slice(itemsPerPage*pageNumber-itemsPerPage,itemsPerPage*pageNumber);
-            return pagedItems;
+            pagedItems = selectedItemsArr.slice(itemsPerPage*pageNumber-itemsPerPage,itemsPerPage*pageNumber);
+            
+             let formatedPagedItems = [];
+             let rowIndex = 1
+
+            pagedItems.reduce((result,currentValue,index) => {
+                
+                if(rowIndex === 1 && (index+1) < pagedItems.length){
+                    result.push(currentValue)
+                    rowIndex++
+                    return result
+                }
+                
+                //last item in row
+                else if(rowIndex === 3 ||(index+1) === pagedItems.length){
+                    result.push(currentValue)
+                    formatedPagedItems.push(<div className="row" key={Math.random()}><div className="col-xs-12 col-sm-12 col-md-12 col-lg-12">{result}</div></div>)
+                    result=[];
+                    rowIndex = 1
+                    return result
+                } 
+                //middle item
+                else{
+                    rowIndex++;
+                    result.push(currentValue);
+                    return result;
+            }
+        },[]);
+    
+            return formatedPagedItems;
         };
 
-    componentDidMount(){
+
+        componentDidMount(){
         this.props.setFirstTimeVisit(false);
     }
 
 
     render(){
-        const menuTransitionOptions = {
-            transitionName:"menu",
-            transitionAppear:this.props.firstTimeVisit,
-            transitionEnter:false,
-            transitionLeave:false,
-            transitionAppearTimeout:2000,
-            transitionLeaveTimeout:2500,
-            transitionEnterTimeout:2500,
-        };
-    
+        console.log('rendering component');
+        console.log('acitve page is' , this.state.activePage);
     return (
-        <div className="col-md-offset-1 col-md-9 items">
-                        <ReactCSSTransitionGroup {...menuTransitionOptions}>
-                         {this.renderItemList(this.state.activePage)}
-                        </ReactCSSTransitionGroup>
-                        {this.renderPagination()}
+        <div className="container">
+            <div className="col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-11 col-md-offset-1 col-md-11 col-lg-offset-1 col-lg-11">
+                {this.renderItemList(this.state.activePage)}
+                <div className="paginationWrapper pull-right">
+                    {this.renderPagination()}
+                </div>
             </div>
-            
+        </div>
             )
     }
 }

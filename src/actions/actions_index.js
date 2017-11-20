@@ -8,6 +8,7 @@ export const FIRST_TIME_VISIT = "FIRST_TIME_VISIT";
 export const IS_PAGE_CHANGE = "IS_PAGE_CHANGE"
 export const MEMORIZE_LAST_PAGE = "LAST_PAGE";
 export const RATING_SELECTED = "RATING_SELECTED"
+export const SET_ACTIVE_PAGE = "SET_ACTIVE_PAGE"
 
 export function addToCart(id){
     return {
@@ -76,5 +77,12 @@ export function selectRating(rating){
     return{
         type:RATING_SELECTED,
         payload:rating
+    }
+}
+
+export function setActivePage(page){
+    return{
+        type:SET_ACTIVE_PAGE,
+        payload:page
     }
 }

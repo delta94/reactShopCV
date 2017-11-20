@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {selectTag,setSelectedOrdering,selectRating} from '../actions/actions_index.js'
+import {selectTag,setSelectedOrdering,selectRating,setActivePage} from '../actions/actions_index.js'
 import {numberOfTags, orderingType} from '../data/data.js'
 import _ from 'lodash'
 import {renderRating} from '../helpers/helpers.js'
@@ -25,7 +25,9 @@ class Tags extends Component{
     }
 
     onTagChange(event){
+        console.log('changing tag');
         this.props.selectTag(event.target.value);
+        this.props.setActivePage(1);
     }
 
     onRatingChange(event){
@@ -98,7 +100,7 @@ function mapStateToProps({selectedTags,selectedOrdering,selectedRatings}){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({selectTag:selectTag,setSelectedOrdering:setSelectedOrdering,selectRating},dispatch);
+    return bindActionCreators({selectTag:selectTag,setSelectedOrdering:setSelectedOrdering,selectRating,setActivePage},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tags)

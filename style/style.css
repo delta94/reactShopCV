@@ -172,17 +172,17 @@ select {
 
 /* item */
 .items{
-    margin-top:2em;
-}
-
-.list-inline{
-    width: 200px;
+    /* margin-top:2em; */
+    margin-left: auto;
+    text-align: center !important;
+    
 }
 
 .item{
     border: 1px solid lightgrey;
-    margin:1em;
-    text-align: center
+    margin:2em;
+    padding: 2em;
+    text-align: center !important;
 }
 
 
@@ -506,6 +506,16 @@ table td{
 
 .footer span {
     margin-right: 1em;
+}
+
+/* pagination */
+.paginationWrapper{
+    
+}
+
+.item-img{
+    width: 150px !important;
+    height: 150px !important;
 }
 
 /* transitions */

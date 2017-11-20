@@ -18,39 +18,14 @@ class Teste extends Component{
     render(){
 
         return (
-        //     <nav aria-label="Page navigation">
-        //     <Pagination
-        //   activePage={this.state.activePage}
-        //   itemsCountPerPage={1}
-        //   totalItemsCount={10}
-        //   pageRangeDisplayed={5}
-        //   onChange={this.handlePageChange}
-        //   classNameName="pagination">
-        //     </Pagination>
-        // </nav>
-
-<nav aria-label="Page navigation">
-  <ul className="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li className="page-item"><a href="#">1</a></li>
-    <li className="page-item"><a href="#">1</a></li>
-    <li className="page-item"><a href="#">1</a></li>
-    <li className="page-item"><a href="#">2</a></li>
-    <li className="page-item"><a href="#">3</a></li>
-    <li className="page-item"><a href="#">4</a></li>
-    <li className="page-item"><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
-
+        <div className="container-fluid">
+          <div className="row">
+            <div className="col-md-3 teste">X</div>
+            <div className="col-md-3 teste">y</div>
+            <div className="col-md-3 teste">z</div>
+            <div className="col-md-3 teste">z</div>            
+          </div>
+        </div>
 
         )
     }

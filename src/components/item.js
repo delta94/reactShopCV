@@ -11,9 +11,9 @@ class Item extends Component{
     render(){
         return(
             <div className="col-md-3 item">
-                    <div className="img-fluid">
+                    <div className="img-fluid ">
                     <Link to={`/item/${this.props.item.id}`}>
-                        <img className="" src={this.props.item.image} alt={this.props.item.title} />
+                        <img className="item-img" src={this.props.item.image} alt={this.props.item.title} />
                     </Link>
                     </div>
                     <div className="itemDetailsWrapper">

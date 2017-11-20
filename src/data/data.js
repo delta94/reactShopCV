@@ -294,6 +294,16 @@ export const items = {
     stock: 0,
     rating:5,
   },
+  28: {
+    title: 'teste',
+    description: 'teste',
+    image: 'https://media.licdn.com/mpr/mpr/shrink_200_200/AAEAAQAAAAAAAAJrAAAAJGYzNzc5NmIxLTkzODQtNDY3Yi1iZmIzLTkzZjIzZmE2YjZhNw.png',
+    price: 59.99,
+    tag: 'Fun',
+    id: 28,
+    stock: 0,
+    rating:5,
+  },
 
 };
 
@@ -308,6 +318,7 @@ export const orderingType = { category: 'Category', priceAsc: 'Price Asc.', pric
 
 export const startingOrdering = orderingType.category;
 
-export const itemsPerPage = 6;
+export const itemsPerPage = 9;
+export const itemsPerRow = 3;
 
 export const totalItems = Object.keys(items).length;
