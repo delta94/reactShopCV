@@ -5,6 +5,7 @@ import {addToCart, updateStock} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import Navbar from './navbar.js';
 import AlertContainer from 'react-alert'
+import {renderRating} from '../helpers/helpers.js'
 
 
 class ItemDetail extends Component{
@@ -25,20 +26,6 @@ class ItemDetail extends Component{
         })
     }
 
-    renderRating(nStars){
-        
-        // better way to do this
-        let stars=[];
-
-        for(let i = 1 ; i<6 ;i++){
-            stars.push(i)
-        }
-     
-        return stars.map(star => {
-            return (<i key={star}className="fa fa-star"/>)
-        })
-    }
-
     renderImageOrVideo(item){
         if(item.video){
             return (<div dangerouslySetInnerHTML={{__html:item.video}}></div>)
@@ -46,8 +33,7 @@ class ItemDetail extends Component{
             return(<img src={item.image}></img>)
         }
     }
-
-         
+      
     updateStock(id){
         this.props.updateStock(id);
     }
@@ -90,7 +76,6 @@ class ItemDetail extends Component{
                 <div className="container itemDetail">
                     <div className="col-md-12 col-sm-12 col-xs-12 itemDetailImage">
                         {this.renderImageOrVideo(this.props.item)}
-                        {/* <iframe width="560" height="315" src="https://www.youtube.com/embed/zJB-Ux4ScSA" frameBorder="0" allowFullScreen></iframe> */}
                         
                     </div>
                     <div className="col-md-12 col-sm-12 col-xs-12 itemDetailDescription">
@@ -101,7 +86,7 @@ class ItemDetail extends Component{
                             <p><i className="fa fa-itemDetail fa-tag" aria-hidden="true"></i>{this.props.item.price} €</p>
                             <p><i className="fa fa-itemDetail fa-puzzle-piece" aria-hidden="true"></i>{this.props.item.tag}</p>
                             {stockLevelAlert}
-                            <p><i className="fa fa-itemDetail starBlack fa-star"></i>Reviews: {this.renderRating(5)}</p>
+                            <p><i className="fa fa-itemDetail starBlack fa-star"></i>Reviews: {renderRating(this.props.item.rating)}</p>
                         </div>
                         
                         <Link to="/" className="btn backButton pull-right">Back</Link>

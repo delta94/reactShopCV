@@ -7,6 +7,7 @@ export const RESET_STOCK = "RESET_STOCK"
 export const FIRST_TIME_VISIT = "FIRST_TIME_VISIT";
 export const IS_PAGE_CHANGE = "IS_PAGE_CHANGE"
 export const MEMORIZE_LAST_PAGE = "LAST_PAGE";
+export const RATING_SELECTED = "RATING_SELECTED"
 
 export function addToCart(id){
     return {
@@ -68,5 +69,12 @@ export function memorizeLastPage(pageNumber){
     return{
         type:MEMORIZE_LAST_PAGE,
         payload:pageNumber
+    }
+}
+
+export function selectRating(rating){
+    return{
+        type:RATING_SELECTED,
+        payload:rating
     }
 }

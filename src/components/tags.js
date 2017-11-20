@@ -1,10 +1,10 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {selectTag} from '../actions/actions_index.js'
-import {setSelectedOrdering} from '../actions/actions_index.js'
+import {selectTag,setSelectedOrdering,selectRating} from '../actions/actions_index.js'
 import {numberOfTags, orderingType} from '../data/data.js'
 import _ from 'lodash'
+import {renderRating} from '../helpers/helpers.js'
 
 class Tags extends Component{
 
@@ -18,6 +18,7 @@ class Tags extends Component{
         this.setState({selectedOrdering:this.props.selectedOrdering})
     }
     
+    //change the name of this method
     onSelectChange(event){
         this.setState({selectedOrdering:event.target.value})
         this.props.setSelectedOrdering(event.target.value)
@@ -25,6 +26,10 @@ class Tags extends Component{
 
     onTagChange(event){
         this.props.selectTag(event.target.value);
+    }
+
+    onRatingChange(event){
+        this.props.selectRating(event.target.value)
     }
 
     renderTagsList(){
@@ -41,13 +46,37 @@ class Tags extends Component{
         });
     }
 
+    renderRatingList(){
+
+        let liListOfRatings = []
+
+        for (let i=5 ; i >=1 ; i--){
+            liListOfRatings.push(i)
+        }
+
+        return liListOfRatings.map(li => {
+            return(
+                <li className="ratingListItem" key={li}>
+                <label className="ratingWrapper">
+                    <input type="checkbox" value={li} onChange={(event) =>this.onRatingChange(event)} checked={this.props.selectedRatings[li]}/>
+                    <span className="ratingLabel">{renderRating(li)}</span>
+                </label>
+            </li>
+                )
+        })
+    }
 
     render(){
         return (
         <aside className="tagAside">
             <p className="tagTitle">Filter by:</p>
+            <h5>Category</h5>
             <ul className="tagList">
                 {this.renderTagsList()}
+            </ul>
+            <h5>Rating</h5>
+            <ul className="tagList">
+                {this.renderRatingList()}
             </ul>
             <div className="container-fluid menu"></div>
             <div className="select">
@@ -63,13 +92,12 @@ class Tags extends Component{
     }
 }
 
-
-function mapStateToProps({selectedTags,selectedOrdering}){
-    return {selectedTags:selectedTags.types,selectedOrdering};
+function mapStateToProps({selectedTags,selectedOrdering,selectedRatings}){
+    return {selectedTags:selectedTags.types,selectedOrdering,selectedRatings};
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({selectTag:selectTag,setSelectedOrdering:setSelectedOrdering},dispatch);
+    return bindActionCreators({selectTag:selectTag,setSelectedOrdering:setSelectedOrdering,selectRating},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tags)

@@ -12,6 +12,14 @@ export const tags = {
   tagChange: false,
 };
 
+export const ratings = {
+  1:false,
+  2:false,
+  3:false,
+  4:false,
+  5:false
+}
+
 
 export const items = {
   1: {
@@ -22,6 +30,7 @@ export const items = {
     tag: 'Education',
     id: 1,
     stock: 1,
+    rating:5,
   },
   2: {
     title: 'Msc. in Finance',
@@ -31,6 +40,7 @@ export const items = {
     tag: 'Education',
     id: 2,
     stock: 10,
+    rating:3,
 
   },
   3: {
@@ -41,6 +51,7 @@ export const items = {
     tag: 'Education',
     id: 3,
     stock: 4,
+    rating:4,
   },
   4: {
     title: 'Table Tennis',
@@ -51,6 +62,7 @@ export const items = {
     tag: 'Fun',
     id: 4,
     stock: 10,
+    rating:4,
   },
   5: {
     title: 'BPI',
@@ -60,6 +72,7 @@ export const items = {
     tag: 'Work',
     id: 5,
     stock: 2,
+    rating:3,
   },
   6: {
     title: 'Santander',
@@ -69,6 +82,7 @@ export const items = {
     tag: 'Work',
     id: 6,
     stock: 9,
+    rating:4,
   },
   7: {
     title: 'Uniplaces',
@@ -78,6 +92,7 @@ export const items = {
     tag: 'Work',
     id: 7,
     stock: 7,
+    rating:4,
   },
   8: {
     title: 'CGI',
@@ -87,6 +102,7 @@ export const items = {
     tag: 'Work',
     id: 8,
     stock: 2,
+    rating:4,
   },
   9: {
     title: 'Bootstrap',
@@ -96,6 +112,7 @@ export const items = {
     tag: 'Skills',
     id: 9,
     stock: 8,
+    rating:4,
   },
   10: {
     title: 'Node.Js',
@@ -105,6 +122,7 @@ export const items = {
     tag: 'Skills',
     id: 10,
     stock: 3,
+    rating:4,
   },
   11: {
     title: 'React',
@@ -114,6 +132,7 @@ export const items = {
     tag: 'Skills',
     id: 11,
     stock: 7,
+    rating:5,
   },
   12: {
     title: 'Java',
@@ -123,6 +142,7 @@ export const items = {
     tag: 'Skills',
     id: 12,
     stock: 6,
+    rating:5,
   },
   13: {
     title: 'C#',
@@ -132,6 +152,7 @@ export const items = {
     tag: 'Skills',
     id: 13,
     stock: 9,
+    rating:4,
   },
   14: {
     title: 'Mongo DB',
@@ -141,6 +162,7 @@ export const items = {
     tag: 'Skills',
     id: 14,
     stock: 3,
+    rating:3,
   },
   15: {
     title: 'SQL',
@@ -150,6 +172,7 @@ export const items = {
     tag: 'Skills',
     id: 15,
     stock: 6,
+    rating:3,
   },
   16: {
     title: 'Spring',
@@ -159,6 +182,7 @@ export const items = {
     tag: 'Skills',
     id: 16,
     stock: 8,
+    rating:4,
   },
   17: {
     title: 'CSS',
@@ -168,6 +192,7 @@ export const items = {
     tag: 'Skills',
     id: 17,
     stock: 2,
+    rating:2,
   },
   18: {
     title: 'Hibernate',
@@ -177,6 +202,7 @@ export const items = {
     tag: 'Skills',
     id: 18,
     stock: 7,
+    rating:2,
   },
   19: {
     title: 'Git',
@@ -186,6 +212,7 @@ export const items = {
     tag: 'Skills',
     id: 19,
     stock: 4,
+    rating:5,
   },
   20: {
     title: 'Html',
@@ -195,6 +222,7 @@ export const items = {
     tag: 'Skills',
     id: 20,
     stock: 10,
+    rating:1,
   },
   21: {
     title: 'Excel',
@@ -204,6 +232,7 @@ export const items = {
     tag: 'Skills',
     id: 21,
     stock: 6,
+    rating:3,
   },
   22: {
     title: 'Webpack',
@@ -213,6 +242,7 @@ export const items = {
     tag: 'Skills',
     id: 22,
     stock: 2,
+    rating:3,
   },
   23: {
     title: 'ES6',
@@ -222,6 +252,7 @@ export const items = {
     tag: 'Skills',
     id: 23,
     stock: 9,
+    rating:3,
   },
   24: {
     title: 'ReactiumVittae',
@@ -231,6 +262,7 @@ export const items = {
     tag: 'Projects',
     id: 24,
     stock: 0,
+    rating:5,
   },
   25: {
     title: '65',
@@ -240,6 +272,7 @@ export const items = {
     tag: 'Projects',
     id: 25,
     stock: 0,
+    rating:5,
   },
   26: {
     title: 'Spotify Playlist Sorter',
@@ -249,6 +282,7 @@ export const items = {
     tag: 'Projects',
     id: 26,
     stock: 0,
+    rating:4,
   },
   27: {
     title: 'Dogs',
@@ -258,6 +292,7 @@ export const items = {
     tag: 'Fun',
     id: 27,
     stock: 0,
+    rating:5,
   },
 
 };
