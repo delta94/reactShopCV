@@ -168,14 +168,11 @@ class Menu extends Component{
         };
     
     return (
-        <div className="container items">
-                    <div className="col-md-12">
+        <div className="col-md-offset-1 col-md-9 items">
                         <ReactCSSTransitionGroup {...menuTransitionOptions}>
                          {this.renderItemList(this.state.activePage)}
                         </ReactCSSTransitionGroup>
                         {this.renderPagination()}
-                    </div>
-                    
             </div>
             
             )

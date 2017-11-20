@@ -2,8 +2,8 @@
 .navbar{
     background-color: #23303e;
     border-radius: 0px !important;
-    padding-bottom: 15px !important;
-    padding-top: 15px !important;
+    padding-bottom: 2em !important;
+    padding-top: 1em !important;
     margin-right: -15px;
     margin-left: -15px;
 }
@@ -11,7 +11,11 @@
 .navbar-brand{
     color: whitesmoke;
     text-decoration: none;
-    font-size: 24px !important
+    font-size: 1.5em !important
+}
+
+.navbar-text{
+    margin: 0px !important;
 }
 
 .navbar-brand:hover{
@@ -21,12 +25,14 @@
 
 .navbar-brand small{
     color: #FDBD68;
+    font-size:1em;
 }
 
 
 .open{
     margin-right: 1em;
     margin-top: 0.5em;
+    margin-left: 1em;
     transform: rotate(-10deg)
 }
 
@@ -38,11 +44,19 @@
     display:block;
     margin-top: 1em;
     font-size:12px;
-  }
+}
 
-.slogan{
-    color:lightgray;
-    font-size:12px;
+@media (max-width: 1000px) 
+{
+    .shoppingCartText
+    {
+        display: none !important;
+    }
+}
+
+.cart{
+    position: relative !important;
+    margin-top: 0.5em;
 }
 
 .cart:hover{
@@ -52,22 +66,29 @@
 .cartIcon{
     margin-top: 0.25em;
     margin-right: 0.25em;
-    color:whitesmoke !important
+    font-size:2em !important;
+    color:whitesmoke !important;
 }
 
 .shoppingCartText{
     text-decoration: none !important;
     color: whitesmoke !important;
-    font-size: 12px;
+}
+
+.cartSize{
+    text-decoration: none !important;
+    color: whitesmoke !important;
+    margin-left: 0.25em;
+    margin-right: 1em;    
 }
 
 
 /* tags */
 
-aside{
+.aside{
     margin-top: 2em;
     margin-right: 2em;
-    border-right: 1px solid lightgrey;
+    border-right: 5px solid lightgrey !important;
     padding-right: 1em;
     height: 100vh !important;
     padding-right: 5em;
@@ -75,10 +96,6 @@ aside{
 
 .tagWrapper{
     display: inline-flex !important; 
-}
-
-.tagTitle{
-    color: grey !important
 }
 
 .tagList{
@@ -89,7 +106,12 @@ aside{
 .tagLabel{
     margin-left: 0.2em;
     vertical-align: center;
-    font-size: 14px;
+    font-size: 1em !important;
+    font-weight: normal !important;
+}
+
+.SortByTitle{
+    margin-top: 2em !important;
 }
 
 input:hover{
@@ -158,9 +180,9 @@ select {
 }
 
 .item{
-    margin: 1em;
-    padding: 2em;
     border: 1px solid lightgrey;
+    margin:1em;
+    text-align: center
 }
 
 

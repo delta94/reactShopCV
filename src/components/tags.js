@@ -36,7 +36,7 @@ class Tags extends Component{
         const tagsArr = _.values(this.props.selectedTags);
         return tagsArr.map(tag => {
             return(
-                <li className="tagListItem" key={tag.description}>
+                <li key={tag.description}>
                     <label className="tagWrapper">
                         <input type="checkbox" value={tag.description} onChange={(event) =>this.onTagChange(event)} checked = {tag.selected}/>
                         <span className="tagLabel">{tag.description}</span>
@@ -56,10 +56,10 @@ class Tags extends Component{
 
         return liListOfRatings.map(li => {
             return(
-                <li className="ratingListItem" key={li}>
+                <li key={li}>
                 <label className="ratingWrapper">
                     <input type="checkbox" value={li} onChange={(event) =>this.onRatingChange(event)} checked={this.props.selectedRatings[li]}/>
-                    <span className="ratingLabel">{renderRating(li)}</span>
+                    <span className="tagLabel">{renderRating(li)}</span>
                 </label>
             </li>
                 )
@@ -68,19 +68,19 @@ class Tags extends Component{
 
     render(){
         return (
-        <aside className="tagAside">
-            <p className="tagTitle">Filter by:</p>
-            <h5>Category</h5>
+        <div className="col-md-2 aside">
+            <strong><p>Filter by:</p></strong>
+            <p className>Category</p>
             <ul className="tagList">
                 {this.renderTagsList()}
             </ul>
-            <h5>Rating</h5>
+            <p>Rating</p>
             <ul className="tagList">
                 {this.renderRatingList()}
             </ul>
             <div className="container-fluid menu"></div>
             <div className="select">
-            <p className="tagTitle">Sort by:</p>
+            <strong><p className="SortByTitle">Sort by:</p></strong>
             <select value={this.state.selectedOrdering} className="filterSelect" onChange={this.onSelectChange}>
                 <option value={orderingType.category}>{orderingType.category}</option>
                 <option value={orderingType.priceAsc}>{orderingType.priceAsc}</option>
@@ -88,7 +88,7 @@ class Tags extends Component{
                 <option value={orderingType.rating}>{orderingType.rating}</option>                
             </select>
         </div>
-        </aside>
+        </div>
         )
     }
 }

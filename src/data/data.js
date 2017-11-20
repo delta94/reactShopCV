@@ -308,6 +308,6 @@ export const orderingType = { category: 'Category', priceAsc: 'Price Asc.', pric
 
 export const startingOrdering = orderingType.category;
 
-export const itemsPerPage = 9;
+export const itemsPerPage = 6;
 
 export const totalItems = Object.keys(items).length;
