@@ -62,7 +62,7 @@ class Tags extends Component{
             return(
                 <li key={li}>
                 <label className="ratingWrapper">
-                    <input type="checkbox" value={li} onChange={(event) =>this.onRatingChange(event)} checked={this.props.selectedRatings[li]}/>
+                    <input type="checkbox" value={li} onChange={(event) =>this.onRatingChange(event)} checked={this.props.selectedRatings.rates[li]}/>
                     <span className="tagLabel">{renderRating(li)}</span>
                 </label>
             </li>
