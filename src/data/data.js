@@ -243,7 +243,7 @@ export const items = {
   },
   22: {
     title: 'Webpack',
-    description: 'At first I used to look at it in complete despair. But then it started to make some sense. Although the syntax is not very welcoming, it’s a very cool tool for bundling and testing. I\'m using it in every new project I’m doing and I’ve used it in 65 and ReactiumVittae.',
+    description: 'At first I used to look at it in complete despair. But then it started to make some sense. Although the syntax is not very welcoming, it’s a very cool tool for bundling and testing. I\'m using it in every new project I’m doing and I’ve used it in 65 and ReactiumVitae.',
     image: '/src/img/webpack.png',
     price: 77.90,
     tag: 'Skills',
@@ -262,7 +262,7 @@ export const items = {
     rating:4,
   },
   24: {
-    title: 'ReactiumVittae',
+    title: 'ReactiumVitae',
     description: 'I originally got the idea that a online shop could be a good starting point for a CV when I was shopping online and looking for a job at the same time. When I got my hands on React and wanted to make a project to consolidate my knowledge I chose to do it. And you’re currently looking at it! The technologies used were React and Redux.',
     image: '/src/img/shoppingBag.png',
     price: 99.99,
