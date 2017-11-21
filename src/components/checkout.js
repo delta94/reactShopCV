@@ -15,7 +15,7 @@ class Checkout extends Component{
     })
 
     return (
-        <Link to="/checkout" className="pull-right">
+        <Link to="/checkout" className="pull-right cartIconAnchor">
           <i className="fa fa-shopping-cart cartIcon" aria-hidden="true"></i>
           <span className="shoppingCartText">Shopping Cart</span><span className="cartSize">({cartSize})</span>
         </Link>

@@ -60,7 +60,7 @@
 }
 
 .cart:hover{
-    text-decoration: none;
+    text-decoration: none !important;
 }
 
 .cartIcon{
@@ -68,6 +68,10 @@
     margin-right: 0.25em;
     font-size:2em !important;
     color:whitesmoke !important;
+}
+
+.cartIconAnchor:hover{
+    text-decoration: none !important
 }
 
 .shoppingCartText{
@@ -294,7 +298,8 @@ select {
 }
 
 .backButton:hover{
-    color: white
+    color: white !important;
+    text-decoration: none !important;
 }
 
 

@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {bindActionCreators} from 'redux'
-import {selectTag,setSelectedOrdering,selectRating} from '../actions/actions_index.js'
+import {selectTag,setSelectedOrdering,selectRating,setFirstTimeVisit} from '../actions/actions_index.js'
 import {numberOfTags, orderingType} from '../data/data.js'
 import _ from 'lodash'
 import {renderRating} from '../helpers/helpers.js'
@@ -15,20 +15,24 @@ class Tags extends Component{
     }
 
     componentDidMount(){
+        
         this.setState({selectedOrdering:this.props.selectedOrdering})
     }
     
     //change the name of this method
     onSelectChange(event){
+        this.props.setFirstTimeVisit();
         this.setState({selectedOrdering:event.target.value})
         this.props.setSelectedOrdering(event.target.value)
     }
 
     onTagChange(event){
+        this.props.setFirstTimeVisit();
         this.props.selectTag(event.target.value);
     }
 
     onRatingChange(event){
+        this.props.setFirstTimeVisit();
         this.props.selectRating(event.target.value)
     }
 
@@ -98,7 +102,7 @@ function mapStateToProps({selectedTags,selectedOrdering,selectedRatings}){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({selectTag:selectTag,setSelectedOrdering:setSelectedOrdering,selectRating},dispatch);
+    return bindActionCreators({selectTag:selectTag,setSelectedOrdering:setSelectedOrdering,selectRating,setFirstTimeVisit},dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(Tags)

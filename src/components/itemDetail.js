@@ -1,7 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom';
-import {addToCart, updateStock} from '../actions/actions_index.js'
+import {addToCart, updateStock, setFirstTimeVisit} from '../actions/actions_index.js'
 import {bindActionCreators} from 'redux'
 import Navbar from './navbar.js';
 import AlertContainer from 'react-alert'
@@ -16,6 +16,10 @@ class ItemDetail extends Component{
     time: 0,
     theme: 'dark',
     transition: 'scale'
+    }
+
+    componentDidMount(){
+        this.props.setFirstTimeVisit();
     }
 
     showAlert = () => {
@@ -106,7 +110,7 @@ function mapStateToProps(state,ownProps){
 }
 
 function mapDispatchToProps(dispatch){
-    return bindActionCreators({addToCart:addToCart ,updateStock:updateStock}, dispatch);
+    return bindActionCreators({addToCart:addToCart ,updateStock:updateStock,setFirstTimeVisit}, dispatch);
 }
 
 export default connect(mapStateToProps,mapDispatchToProps)(ItemDetail);

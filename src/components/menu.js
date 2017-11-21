@@ -20,12 +20,13 @@ class Menu extends Component{
     }
 
     componentWillMount(){
-        // this.setState({activePage:this.props.lastVisitedPage})
         this.setState({activePage:this.props.lastVisitedPage})   
     }
 
+    
     handlePageChange(pageNumber){
         this.props.isPageChange();
+        this.props.setFirstTimeVisit();
         this.props.memorizeLastPage(pageNumber);
         this.setState({activePage: pageNumber});
     }
@@ -92,6 +93,16 @@ class Menu extends Component{
     }
 
     renderItemList(pageNumber){
+        const menuTransitionOptions = {
+            transitionName:"menu",
+            transitionAppear:this.props.firstTimeVisit,
+            transitionEnter:false,
+            transitionLeave:false,
+            transitionAppearTimeout:2000,
+            transitionLeaveTimeout:2500,
+            transitionEnterTimeout:2500,
+        };
+
        
         const itemsArr = _.valuesIn(this.props.items);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
@@ -122,20 +133,20 @@ class Menu extends Component{
             //4 - at least on skill and one rating is selected
             
             if((activeTagsCount === numberOfTags || activeTagsCount === 0) && activeRatingsCount === 0 ){
-                result.push(<Item item={item} key={item.id} renderRating={this.renderRating}/>)
+                result.push(<ReactCSSTransitionGroup key={item.id} {...menuTransitionOptions}><Item item={item}  renderRating={this.renderRating}/></ReactCSSTransitionGroup>)
                 return result;
             }else if(activeTagsCount > 0 && activeRatingsCount === 0){
                 if(this.props.selectedTags[item.tag].selected){
-                    result.push(<Item item={item} key={item.id} renderRating={this.renderRating}/>)
+                    result.push(<ReactCSSTransitionGroup key={item.id} {...menuTransitionOptions}><Item item={item}  renderRating={this.renderRating}/></ReactCSSTransitionGroup>)
                 }
                 return result
             } else if((activeTagsCount === numberOfTags || activeTagsCount === 0) && activeRatingsCount > 0){
                 if(this.props.selectedRatings[item.rating]){
-                    result.push(<Item item={item} key={item.id} renderRating={this.renderRating}/>)
+                    result.push(<ReactCSSTransitionGroup key={item.id} {...menuTransitionOptions}><Item item={item}  renderRating={this.renderRating}/></ReactCSSTransitionGroup>)
                 }
                 return result
             } else if(this.props.selectedTags[item.tag].selected && this.props.selectedRatings[item.rating]){
-                result.push (<Item item={item} key={item.id} renderRating={this.renderRating}/>)
+                result.push (<ReactCSSTransitionGroup key={item.id} {...menuTransitionOptions}><Item item={item}  renderRating={this.renderRating}/></ReactCSSTransitionGroup>)
                 return result;
             } else{
                 return result;
@@ -191,15 +202,9 @@ class Menu extends Component{
                     return result;
             }
         },[]);
-    
+
             return formatedPagedItems;
         };
-
-
-        componentDidMount(){
-        this.props.setFirstTimeVisit(false);
-    }
-
 
     render(){
         let pageToRender = null;

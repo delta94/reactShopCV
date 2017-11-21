@@ -52,10 +52,9 @@ export function removeFromCart(id){
     }
 }
 
-export function setFirstTimeVisit(firstTime){
+export function setFirstTimeVisit(){
     return{
         type:FIRST_TIME_VISIT,
-        payload:firstTime
     }
 }
 

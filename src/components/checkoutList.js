@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { items } from "../data/data.js";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { removeFromCart, resetStock } from "../actions/actions_index.js";
+import { removeFromCart, resetStock ,setFirstTimeVisit} from "../actions/actions_index.js";
 import { bindActionCreators } from "redux";
 import _ from "lodash";
 import AlertContainer from "react-alert";
@@ -10,6 +10,10 @@ import Navbar from "../components/navbar.js";
 import ReactCSSTransitionGroup from "react-addons-css-transition-group";
 
 class CheckoutList extends Component {
+
+  componentDidMount(){
+    this.props.setFirstTimeVisit()
+  }
 
   alertOptions = {
     offset: 14,
@@ -228,9 +232,7 @@ function mapStateToProps(state) {
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators(
-    { removeFromCart: removeFromCart, resetStock: resetStock },
-    dispatch
-  );
+    { removeFromCart: removeFromCart, resetStock: resetStock ,setFirstTimeVisit},dispatch);
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(CheckoutList);
