@@ -103,7 +103,6 @@ class Menu extends Component{
             transitionEnterTimeout:2500,
         };
 
-       
         const itemsArr = _.valuesIn(this.props.items);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
         const activeTagsCount = Object.values(activeTags).reduce((accumulator,current) => {

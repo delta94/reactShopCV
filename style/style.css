@@ -232,6 +232,10 @@ select {
     margin-right: 1em;
 }
 
+.fa-link{
+    margin-left:1em;
+}
+
 .addToCartBtn{
     margin-right: 1em;
     background-color:#24303D !important;
@@ -600,3 +604,18 @@ table td{
     transform-origin: 50% 50%;
     transition: 2000ms linear all;
 }
+
+.checkoutEnd-appear{
+    opacity: 0;
+    -webkit-transition: 2000 linear all;
+    -moz-transition: 2000 linear all;
+    -o-transition: 2000 linear all;
+}
+
+.checkoutEnd-appear-active{
+    opacity: 1;
+    transition: 2000ms linear all;
+
+}
+
+    

@@ -20,7 +20,7 @@ class Item extends Component{
                         <div className="itemName">{this.props.item.title}</div>
                         <div className="itemTag">{this.props.item.tag}</div>                        
                         <div className="itemRating pull-left"><span>{this.props.renderRating(this.props.item.rating)}</span></div>
-                        <div className="itemPrice pull-right">{this.props.item.price}€</div>
+                        <div className="itemPrice pull-right">{(this.props.item.price).toFixed(2)}€</div>
                     </div>
             </div>
         )
