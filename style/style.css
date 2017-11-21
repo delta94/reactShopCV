@@ -174,8 +174,14 @@ select {
 .items{
     /* margin-top:2em; */
     margin-left: auto;
-    text-align: center !important;
-    
+    text-align: center !important;  
+}
+
+.noItemsForFilters > h1{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    margin-top: 8em;
 }
 
 .item{

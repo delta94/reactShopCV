@@ -142,6 +142,16 @@ class Menu extends Component{
             }
         },[]);
 
+        if(selectedItemsArr.length === 0){
+            return (
+                <div className="noItemsForFilters">
+                    <h1>
+                        Oops! There are no items for the selected filters.
+                    </h1>
+                </div>
+        )
+        }
+
 
         this.selectedItemCount = selectedItemsArr.length;
 
@@ -186,9 +196,9 @@ class Menu extends Component{
         };
 
 
-    //     componentDidMount(){
-    //     this.props.setFirstTimeVisit(false);
-    // }
+        componentDidMount(){
+        this.props.setFirstTimeVisit(false);
+    }
 
 
     render(){
