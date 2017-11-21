@@ -25,9 +25,6 @@ class Menu extends Component{
         this.setState({activePage:this.props.lastVisitedPage})   
     }
 
-    // componentWillReceiveProps(next){
-    //     this.setState({activePage:1})   
-    // }
     handlePageChange(pageNumber){
         this.props.isPageChange();
         this.props.memorizeLastPage(pageNumber);
@@ -97,7 +94,7 @@ class Menu extends Component{
     }
 
     renderItemList(pageNumber){
-        console.log('rendering page number ' , pageNumber);
+        this.props.isTagChange ? pageNumber = 1 : pageNumber = this.state.activePage
         const itemsArr = _.valuesIn(this.props.items);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
         const activeTagsCount = Object.values(activeTags).reduce((accumulator,current) => {

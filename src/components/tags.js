@@ -27,7 +27,7 @@ class Tags extends Component{
     onTagChange(event){
         console.log('changing tag');
         this.props.selectTag(event.target.value);
-        this.props.setActivePage(1);
+        // this.props.setActivePage(1);
     }
 
     onRatingChange(event){
