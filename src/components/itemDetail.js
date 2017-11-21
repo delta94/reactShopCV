@@ -40,7 +40,6 @@ class ItemDetail extends Component{
 
     renderItemLink(item){
         if(item.link){
-            console.log('here');
             return(
                 <div className>
                     <h4 className="itemDetailTitle">Links</h4>
@@ -96,7 +95,6 @@ class ItemDetail extends Component{
             stockLevelAlert=null
         }
 
-        console.log(this.props.item);
 
         return(
             <div> 

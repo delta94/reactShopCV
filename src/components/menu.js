@@ -152,6 +152,8 @@ class Menu extends Component{
             }
         },[]);
 
+        this.selectedItemCount = selectedItemsArr.length;
+
         if(selectedItemsArr.length === 0){
             return (
                 <div className="noItemsForFilters">
@@ -161,9 +163,6 @@ class Menu extends Component{
                 </div>
         )
         }
-
-
-        this.selectedItemCount = selectedItemsArr.length;
 
         let pagedItems = null;
 
