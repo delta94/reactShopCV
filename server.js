@@ -3,7 +3,7 @@ const path = require('path');
 const port = process.env.PORT || 8080;
 const app = express();
 
-app.use(express.static(__dirname+'/'));
+app.use(express.static(__dirname));
 // console.log(path.join(__dirname,'src'));
 
 app.get('*', (req,res) => {

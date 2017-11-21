@@ -9,6 +9,7 @@ import CheckoutList from './components/checkoutList.js'
 import CheckoutEnd from './components/checkoutEnd.js'
 import reducers from './reducers/reducers_index.js'
 
+
 const createStoreWithMiddleware = applyMiddleware()(createStore);
 
 ReactDOM.render(
