@@ -6,7 +6,6 @@ export default function (state = 1 , action){
         case MEMORIZE_LAST_PAGE:
             return action.payload;
         case SET_ACTIVE_PAGE:
-            console.log('setting active page to ' , action.payload);
             return action.payload
         default:
             return state

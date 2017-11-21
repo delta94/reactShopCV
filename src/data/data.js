@@ -13,11 +13,14 @@ export const tags = {
 };
 
 export const ratings = {
-  1:false,
-  2:false,
-  3:false,
-  4:false,
-  5:false
+  rates:{
+    1:false,
+    2:false,
+    3:false,
+    4:false,
+    5:false
+  },
+  isRatingChange:false
 }
 
 

@@ -79,10 +79,3 @@ export function selectRating(rating){
         payload:rating
     }
 }
-
-export function setActivePage(page){
-    return{
-        type:SET_ACTIVE_PAGE,
-        payload:page
-    }
-}

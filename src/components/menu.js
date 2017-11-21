@@ -20,7 +20,6 @@ class Menu extends Component{
     }
 
     componentWillMount(){
-        console.log('changing active page state to ' , this.props.lastVisitedPage);
         // this.setState({activePage:this.props.lastVisitedPage})
         this.setState({activePage:this.props.lastVisitedPage})   
     }
@@ -45,9 +44,8 @@ class Menu extends Component{
     }
 
     renderPagination(){
-        console.log('active page is' , this.state.activePage);
         const paginationOptions = {
-            activePage:this.props.isTagChange ? 1 : this.state.activePage,
+            activePage:(this.props.isTagChange || this.props.isRatingChange) ? 1 : this.state.activePage,
             itemsCountPerPage:itemsPerPage,
             totalItemsCount:this.selectedItemCount,
             pageRangeDisplayed: Math.ceil(this.selectedItemCount/itemsPerPage)
@@ -94,7 +92,7 @@ class Menu extends Component{
     }
 
     renderItemList(pageNumber){
-        this.props.isTagChange ? pageNumber = 1 : pageNumber = this.state.activePage
+       
         const itemsArr = _.valuesIn(this.props.items);
         const activeTags = _.mapValues(this.props.selectedTags,tag => tag.selected);
         const activeTagsCount = Object.values(activeTags).reduce((accumulator,current) => {
@@ -113,7 +111,6 @@ class Menu extends Component{
             }
         },0)
 
-        
 
         const orderedItemsArr = this.orderItems(itemsArr);
 
@@ -145,15 +142,18 @@ class Menu extends Component{
             }
         },[]);
 
+
         this.selectedItemCount = selectedItemsArr.length;
 
         let pagedItems = null;
+
             
         if(pageNumber === 1 || this.props.isTagChange){
                 pagedItems = selectedItemsArr.slice(0,itemsPerPage);
             } 
 
             pagedItems = selectedItemsArr.slice(itemsPerPage*pageNumber-itemsPerPage,itemsPerPage*pageNumber);
+
             
              let formatedPagedItems = [];
              let rowIndex = 1
@@ -186,18 +186,18 @@ class Menu extends Component{
         };
 
 
-        componentDidMount(){
-        this.props.setFirstTimeVisit(false);
-    }
+    //     componentDidMount(){
+    //     this.props.setFirstTimeVisit(false);
+    // }
 
 
     render(){
-        console.log('rendering component');
-        console.log('acitve page is' , this.state.activePage);
+        let pageToRender = null;
+        (this.props.isTagChange || this.props.isRatingChange) ? pageToRender = 1 : pageToRender = this.state.activePage
     return (
         <div className="container">
             <div className="col-xs-offset-1 col-xs-11 col-sm-offset-1 col-sm-11 col-md-offset-1 col-md-11 col-lg-offset-1 col-lg-11">
-                {this.renderItemList(this.state.activePage)}
+                {this.renderItemList(pageToRender)}
                 <div className="paginationWrapper pull-right">
                     {this.renderPagination()}
                 </div>
@@ -207,8 +207,8 @@ class Menu extends Component{
     }
 }
 
-function mapStateToProps({selectedTags,selectedRatings, items,selectedOrdering,firstTimeVisit,lastVisitedPage}){
-    return {selectedTags:selectedTags.types,isTagChange:selectedTags.tagChange,items,selectedOrdering,firstTimeVisit,lastVisitedPage,selectedRatings}
+function mapStateToProps({selectedTags,selectedRatings,isRatingChange, items,selectedOrdering,firstTimeVisit,lastVisitedPage}){
+    return {selectedTags:selectedTags.types,isTagChange:selectedTags.tagChange,items,selectedOrdering,firstTimeVisit,lastVisitedPage,selectedRatings:selectedRatings.rates, isRatingChange: selectedRatings.isRatingChange}
 }
 
 function mapDispatchToProps(dispatch){
