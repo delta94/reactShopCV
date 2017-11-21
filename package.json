@@ -6,7 +6,7 @@
   "repository": "git@github.com:StephenGrider/ReduxSimpleStarter.git",
   "scripts": {
     "dev": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
-    "bundle": "webpack -p",
+    "postinstall": "webpack -p",
     "start": "node server.js"
   },
   "author": "",
